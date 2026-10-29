@@ -47,15 +47,14 @@
   left: 4%;
   right: 4%;
   display: flex;
-  justify-content: space-between;
+  gap: 1.5rem;
+  justify-content: right;
   color: rgba(230, 235, 226, 0.55);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
 }
 
-.initiatives-index span {
-  font-size: 1rem;
-}
+
 
 @media (max-width: 768px) {
   .initiatives-heading h2 {

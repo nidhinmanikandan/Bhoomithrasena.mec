@@ -19,7 +19,7 @@ export default function Initiatives() {
       </div>
 
       <span className="initiatives-index">
-        SCROLL TO EXPLORE <span>↓</span>
+        SCROLL TO EXPLORE<span>→</span>
       </span>
     </section>
   );

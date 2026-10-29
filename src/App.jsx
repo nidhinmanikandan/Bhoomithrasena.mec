@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import About from "./About";
 import GridOverlay from "./GridOverlay";
+import Initiatives from "./Initiatives";
 
 export default function App() {
   const heroRef = useRef(null);
@@ -81,6 +82,7 @@ export default function App() {
         <GridOverlay />
         <div className="content-sections">
           <About />
+          <Initiatives />
         </div>
       </div>
       
