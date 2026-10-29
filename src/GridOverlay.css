@@ -5,30 +5,85 @@
 }
 
 .grid-overlay {
+  --grid-column: clamp(260px, 22vw, 360px);
+
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
+}
 
+.grid-overlay::before,
+.grid-overlay::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.grid-overlay::before {
   background-image:
+    repeating-radial-gradient(
+      circle,
+      rgba(205, 220, 207, 0.13) 0,
+      rgba(205, 220, 207, 0.13) 0.5px,
+      transparent 0.7px,
+      transparent 7px
+    ),
     repeating-linear-gradient(
       to right,
       transparent 0,
-      transparent calc(100% - 1px),
-      rgba(210, 225, 205, 0.12) calc(100% - 1px),
-      rgba(210, 225, 205, 0.12) 100%
+      transparent calc(var(--grid-column) - 1px),
+      rgba(205, 220, 207, 0.1) calc(var(--grid-column) - 1px),
+      rgba(205, 220, 207, 0.1) var(--grid-column)
     ),
     repeating-linear-gradient(
       to bottom,
       transparent 0,
       transparent 299px,
-      rgba(210, 225, 205, 0.12) 299px,
-      rgba(210, 225, 205, 0.12) 300px
+      rgba(205, 220, 207, 0.1) 299px,
+      rgba(205, 220, 207, 0.1) 300px
     );
-
   background-size:
-    calc(100% / 12) 100%,
+    7px 7px,
+    var(--grid-column) 100%,
     100% 300px;
+}
+
+.grid-overlay::after {
+  background-image:
+    radial-gradient(
+      ellipse 5px 0.5px at 0 0,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 5px 0.5px at 100% 0,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 5px 0.5px at 0 100%,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 5px 0.5px at 100% 100%,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 0.5px 5px at 0 0,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 0.5px 5px at 0 100%,
+      rgba(205, 220, 207, 0.28) 0 95%,
+      transparent 100%
+    );
+  background-repeat: repeat;
+  background-size: var(--grid-column) 300px;
 }
 
 .content-sections {
@@ -38,4 +93,16 @@
 
 .content-sections > section {
   position: relative;
+}
+
+@media (max-width: 900px) {
+  .grid-overlay {
+    --grid-column: 33.333vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-overlay {
+    --grid-column: 50vw;
+  }
 }
