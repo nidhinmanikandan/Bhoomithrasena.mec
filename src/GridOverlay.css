@@ -81,7 +81,7 @@
 }
 
 .grid-overlay::after {
-  inset: 0 4%;
+  inset: 0;
   background-image:
     linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
     linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
@@ -126,22 +126,22 @@
     1px 10px, 1px 10px, 1px 10px, 1px 10px,
     1px 10px, 1px 10px, 1px 10px, 1px 10px;
   background-position:
-    -5px -0.5px, calc(33.3333% - 1.6667px) -0.5px,
-    calc(66.6667% + 1.6667px) -0.5px, calc(100% + 5px) -0.5px,
-    -5px calc(33.3333% - 0.1667px), calc(33.3333% - 1.6667px) calc(33.3333% - 0.1667px),
-    calc(66.6667% + 1.6667px) calc(33.3333% - 0.1667px), calc(100% + 5px) calc(33.3333% - 0.1667px),
-    -5px calc(66.6667% + 0.1667px), calc(33.3333% - 1.6667px) calc(66.6667% + 0.1667px),
-    calc(66.6667% + 1.6667px) calc(66.6667% + 0.1667px), calc(100% + 5px) calc(66.6667% + 0.1667px),
-    -5px calc(100% + 0.5px), calc(33.3333% - 1.6667px) calc(100% + 0.5px),
-    calc(66.6667% + 1.6667px) calc(100% + 0.5px), calc(100% + 5px) calc(100% + 0.5px),
-    -0.5px -5px, calc(33.3333% - 0.1667px) -5px,
-    calc(66.6667% + 0.1667px) -5px, calc(100% + 0.5px) -5px,
-    -0.5px calc(33.3333% - 1.6667px), calc(33.3333% - 0.1667px) calc(33.3333% - 1.6667px),
-    calc(66.6667% + 0.1667px) calc(33.3333% - 1.6667px), calc(100% + 0.5px) calc(33.3333% - 1.6667px),
-    -0.5px calc(66.6667% + 1.6667px), calc(33.3333% - 0.1667px) calc(66.6667% + 1.6667px),
-    calc(66.6667% + 0.1667px) calc(66.6667% + 1.6667px), calc(100% + 0.5px) calc(66.6667% + 1.6667px),
-    -0.5px calc(100% + 5px), calc(33.3333% - 0.1667px) calc(100% + 5px),
-    calc(66.6667% + 0.1667px) calc(100% + 5px), calc(100% + 0.5px) calc(100% + 5px);
+    calc(4% - 4.6px) -0.5px, calc(34.6667% - 1.5333px) -0.5px,
+    calc(65.3333% + 1.5333px) -0.5px, calc(96% + 4.6px) -0.5px,
+    calc(4% - 4.6px) calc(33.3333% - 0.1667px), calc(34.6667% - 1.5333px) calc(33.3333% - 0.1667px),
+    calc(65.3333% + 1.5333px) calc(33.3333% - 0.1667px), calc(96% + 4.6px) calc(33.3333% - 0.1667px),
+    calc(4% - 4.6px) calc(66.6667% + 0.1667px), calc(34.6667% - 1.5333px) calc(66.6667% + 0.1667px),
+    calc(65.3333% + 1.5333px) calc(66.6667% + 0.1667px), calc(96% + 4.6px) calc(66.6667% + 0.1667px),
+    calc(4% - 4.6px) calc(100% + 0.5px), calc(34.6667% - 1.5333px) calc(100% + 0.5px),
+    calc(65.3333% + 1.5333px) calc(100% + 0.5px), calc(96% + 4.6px) calc(100% + 0.5px),
+    calc(4% - 0.46px) -5px, calc(34.6667% - 0.1533px) -5px,
+    calc(65.3333% + 0.1533px) -5px, calc(96% + 0.46px) -5px,
+    calc(4% - 0.46px) calc(33.3333% - 1.6667px), calc(34.6667% - 0.1533px) calc(33.3333% - 1.6667px),
+    calc(65.3333% + 0.1533px) calc(33.3333% - 1.6667px), calc(96% + 0.46px) calc(33.3333% - 1.6667px),
+    calc(4% - 0.46px) calc(66.6667% + 1.6667px), calc(34.6667% - 0.1533px) calc(66.6667% + 1.6667px),
+    calc(65.3333% + 0.1533px) calc(66.6667% + 1.6667px), calc(96% + 0.46px) calc(66.6667% + 1.6667px),
+    calc(4% - 0.46px) calc(100% + 5px), calc(34.6667% - 0.1533px) calc(100% + 5px),
+    calc(65.3333% + 0.1533px) calc(100% + 5px), calc(96% + 0.46px) calc(100% + 5px);
 }
 .content-sections {
   position: relative;
