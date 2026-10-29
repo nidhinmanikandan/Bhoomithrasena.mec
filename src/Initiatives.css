@@ -1,6 +1,7 @@
 
 .initiatives-intro {
   position: relative;
+  isolation: isolate;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -8,7 +9,19 @@
   justify-content: center;
   overflow: hidden;
   padding: 8vw 4%;
+  background-color: #06100a;
+  --initiatives-transition: 0;
   color: #f5f5f0;
+}
+
+.initiatives-intro::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  opacity: var(--initiatives-transition);
+  background: linear-gradient(180deg, #06100a 0%, #030604 60%);
 }
 
 .initiatives-heading {
