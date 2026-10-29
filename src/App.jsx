@@ -1,12 +1,10 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import About from "./About";
 import GridOverlay from "./GridOverlay";
 import Initiatives from "./Initiatives";
 
 export default function App() {
-  const heroRef = useRef(null);
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".hero-logo", {
@@ -31,7 +29,7 @@ export default function App() {
         delay: 0.8,
         ease: "power2.out",
       });
-    }, heroRef);
+    }, document.body);
 
     return () => ctx.revert();
   }, []);
@@ -41,7 +39,7 @@ export default function App() {
   return (
     <>
     
-      <main className="hero" ref={heroRef}>
+      <main className="hero">
         <div className="scene">
           <video className="scene-video" autoPlay loop muted playsInline aria-hidden="true">
             <source
@@ -51,16 +49,6 @@ export default function App() {
           </video>
           <div className="grain-overlay" aria-hidden="true" />
         </div>
-
-        <header className="navbar">
-          <a className="hero-logo" href="#" aria-label="Flower World home">
-            bms.mec
-          </a>
-          <button className="menu-button">Menu</button>
-          <span className="brand-mark" aria-hidden="true">
-            ✳
-          </span>
-        </header>
 
         <section className="hero-content">
           <h1 className="hero-title">NATURE</h1>
@@ -74,10 +62,19 @@ export default function App() {
           Explore our world <span>↗</span>
         </a>
 
-        <div className="bottom-note">
-          <span>01 / 03</span>
-        </div>
       </main>
+      <header className="navbar">
+        <a className="hero-logo" href="#" aria-label="Flower World home">
+          bms.mec
+        </a>
+        <button className="menu-button">Menu</button>
+        <span className="brand-mark" aria-hidden="true">
+          ✳
+        </span>
+      </header>
+      <div className="bottom-note">
+        <span>01 / 03</span>
+      </div>
       <div className="content-world">
         <GridOverlay />
         <div className="content-sections">
