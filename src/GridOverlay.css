@@ -5,12 +5,18 @@
 }
 
 .grid-overlay {
-  --grid-column: clamp(260px, 22vw, 360px);
-
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
+  background-image: repeating-radial-gradient(
+    circle,
+    rgba(205, 220, 207, 0.13) 0,
+    rgba(205, 220, 207, 0.13) 0.5px,
+    transparent 0.7px,
+    transparent 7px
+  );
+  background-size: 7px 7px;
 }
 
 .grid-overlay::before,
@@ -22,70 +28,121 @@
 }
 
 .grid-overlay::before {
+  inset: 0;
   background-image:
-    repeating-radial-gradient(
-      circle,
-      rgba(205, 220, 207, 0.13) 0,
-      rgba(205, 220, 207, 0.13) 0.5px,
-      transparent 0.7px,
-      transparent 7px
-    ),
-    repeating-linear-gradient(
+    linear-gradient(
       to right,
-      transparent 0,
-      transparent calc(var(--grid-column) - 1px),
-      rgba(205, 220, 207, 0.1) calc(var(--grid-column) - 1px),
-      rgba(205, 220, 207, 0.1) var(--grid-column)
+      transparent calc(4% - 0.5px),
+      rgba(205, 220, 207, 0.1) calc(4% - 0.5px) calc(4% + 0.5px),
+      transparent calc(4% + 0.5px)
     ),
-    repeating-linear-gradient(
+    linear-gradient(
+      to right,
+      transparent calc(34.6667% - 0.5px),
+      rgba(205, 220, 207, 0.1) calc(34.6667% - 0.5px) calc(34.6667% + 0.5px),
+      transparent calc(34.6667% + 0.5px)
+    ),
+    linear-gradient(
+      to right,
+      transparent calc(65.3333% - 0.5px),
+      rgba(205, 220, 207, 0.1) calc(65.3333% - 0.5px) calc(65.3333% + 0.5px),
+      transparent calc(65.3333% + 0.5px)
+    ),
+    linear-gradient(
+      to right,
+      transparent calc(96% - 0.5px),
+      rgba(205, 220, 207, 0.1) calc(96% - 0.5px) calc(96% + 0.5px),
+      transparent calc(96% + 0.5px)
+    ),
+    linear-gradient(
       to bottom,
-      transparent 0,
-      transparent 299px,
-      rgba(205, 220, 207, 0.1) 299px,
-      rgba(205, 220, 207, 0.1) 300px
+      rgba(205, 220, 207, 0.1) 0 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(100% - 1px),
+      rgba(205, 220, 207, 0.1) calc(100% - 1px)
     );
   background-size:
-    7px 7px,
-    var(--grid-column) 100%,
-    100% 300px;
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 33.3333%,
+    100% 100%;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat,
+    no-repeat;
 }
 
 .grid-overlay::after {
+  inset: 0 4%;
   background-image:
-    radial-gradient(
-      ellipse 5px 0.5px at 0 0,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 5px 0.5px at 100% 0,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 5px 0.5px at 0 100%,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 5px 0.5px at 100% 100%,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 0.5px 5px at 0 0,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 0.5px 5px at 0 100%,
-      rgba(205, 220, 207, 0.28) 0 95%,
-      transparent 100%
-    );
-  background-repeat: repeat;
-  background-size: var(--grid-column) 300px;
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28)),
+    linear-gradient(rgba(205, 220, 207, 0.28), rgba(205, 220, 207, 0.28));
+  background-repeat: no-repeat;
+  background-size:
+    10px 1px, 10px 1px, 10px 1px, 10px 1px,
+    10px 1px, 10px 1px, 10px 1px, 10px 1px,
+    10px 1px, 10px 1px, 10px 1px, 10px 1px,
+    10px 1px, 10px 1px, 10px 1px, 10px 1px,
+    1px 10px, 1px 10px, 1px 10px, 1px 10px,
+    1px 10px, 1px 10px, 1px 10px, 1px 10px,
+    1px 10px, 1px 10px, 1px 10px, 1px 10px,
+    1px 10px, 1px 10px, 1px 10px, 1px 10px;
+  background-position:
+    -5px -0.5px, calc(33.3333% - 1.6667px) -0.5px,
+    calc(66.6667% + 1.6667px) -0.5px, calc(100% + 5px) -0.5px,
+    -5px calc(33.3333% - 0.1667px), calc(33.3333% - 1.6667px) calc(33.3333% - 0.1667px),
+    calc(66.6667% + 1.6667px) calc(33.3333% - 0.1667px), calc(100% + 5px) calc(33.3333% - 0.1667px),
+    -5px calc(66.6667% + 0.1667px), calc(33.3333% - 1.6667px) calc(66.6667% + 0.1667px),
+    calc(66.6667% + 1.6667px) calc(66.6667% + 0.1667px), calc(100% + 5px) calc(66.6667% + 0.1667px),
+    -5px calc(100% + 0.5px), calc(33.3333% - 1.6667px) calc(100% + 0.5px),
+    calc(66.6667% + 1.6667px) calc(100% + 0.5px), calc(100% + 5px) calc(100% + 0.5px),
+    -0.5px -5px, calc(33.3333% - 0.1667px) -5px,
+    calc(66.6667% + 0.1667px) -5px, calc(100% + 0.5px) -5px,
+    -0.5px calc(33.3333% - 1.6667px), calc(33.3333% - 0.1667px) calc(33.3333% - 1.6667px),
+    calc(66.6667% + 0.1667px) calc(33.3333% - 1.6667px), calc(100% + 0.5px) calc(33.3333% - 1.6667px),
+    -0.5px calc(66.6667% + 1.6667px), calc(33.3333% - 0.1667px) calc(66.6667% + 1.6667px),
+    calc(66.6667% + 0.1667px) calc(66.6667% + 1.6667px), calc(100% + 0.5px) calc(66.6667% + 1.6667px),
+    -0.5px calc(100% + 5px), calc(33.3333% - 0.1667px) calc(100% + 5px),
+    calc(66.6667% + 0.1667px) calc(100% + 5px), calc(100% + 0.5px) calc(100% + 5px);
 }
-
 .content-sections {
   position: relative;
   z-index: 1;
@@ -93,16 +150,4 @@
 
 .content-sections > section {
   position: relative;
-}
-
-@media (max-width: 900px) {
-  .grid-overlay {
-    --grid-column: 33.333vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .grid-overlay {
-    --grid-column: 50vw;
-  }
 }
