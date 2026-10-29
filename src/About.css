@@ -1,0 +1,190 @@
+/* ============================================================
+   About section — scoped to .about
+   Tokens are local to this section; nothing is added to :root.
+   ============================================================ */
+
+.about {
+  --about-bg: #06100a;
+  --about-text: #ffffff;
+  --about-muted: rgba(255, 255, 255, 0.62);
+  --about-olive: #a3ad86;
+  --about-line: rgba(255, 255, 255, 0.2);
+  --about-pad-x: 4%;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: clamp(72px, 12vw, 180px) 0 clamp(40px, 5vw, 72px);
+  overflow: hidden;
+  color: var(--about-text);
+  background: var(--about-bg);
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Soft blend from the hero's near-black into the green */
+.about::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  height: clamp(80px, 14vw, 200px);
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, #030303, rgba(3, 3, 3, 0));
+}
+
+/* Reuses the existing .grain-overlay from the hero styles */
+.about .grain-overlay {
+  opacity: 0.07;
+}
+
+.about__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--about-pad-x);
+}
+
+/* ---------- Top rule + eyebrow ---------- */
+
+.about__top {
+  position: relative;
+}
+
+.about__rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--about-line);
+}
+
+.about__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+}
+
+.about__eyebrow {
+  margin: 0;
+  color: var(--about-olive);
+  font-size: clamp(10px, 0.8vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+}
+
+.about__index {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Heading ---------- */
+
+.about__heading {
+  margin: clamp(48px, 8vw, 120px) 0 0;
+  font-size: clamp(44px, 9.2vw, 148px);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.about__line {
+  display: block;
+}
+
+/* ---------- Body columns ---------- */
+
+.about__body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  row-gap: 32px;
+  margin-top: clamp(48px, 7vw, 112px);
+}
+
+.about__para {
+  margin: 0;
+}
+
+.about__lead {
+  grid-column: 1 / span 5;
+  max-width: 30em;
+  color: var(--about-text);
+  font-size: clamp(20px, 1.9vw, 30px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.about__text {
+  grid-column: 7 / span 5;
+  max-width: 34em;
+  align-self: end;
+  color: var(--about-muted);
+  font-size: clamp(15px, 1.1vw, 17px);
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* ---------- Closing micro-text ---------- */
+
+.about__footer {
+  margin-top: clamp(72px, 10vw, 160px);
+  padding-top: 18px;
+  border-top: 1px solid var(--about-line);
+}
+
+.about__closing {
+  margin: 0;
+  color: var(--about-olive);
+  font-size: clamp(10px, 0.8vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  line-height: 1.8;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1000px) {
+  .about__lead {
+    grid-column: 1 / span 7;
+  }
+
+  .about__text {
+    grid-column: 6 / span 7;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+  .about {
+    --about-pad-x: 6%;
+    padding-top: 80px;
+  }
+
+  .about__heading {
+    font-size: clamp(42px, 14vw, 76px);
+    letter-spacing: -0.05em;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+
+  .about__lead,
+  .about__text {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+
+  .about__eyebrow,
+  .about__closing {
+    letter-spacing: 0.24em;
+  }
+}
