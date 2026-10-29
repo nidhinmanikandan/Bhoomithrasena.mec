@@ -157,14 +157,14 @@ a:focus-visible {
 .hero-button {
   position: absolute;
   right: 4%;
-  bottom: 28px;
+  bottom: 32px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   padding: 13px 23px;
-  color: #111;
-  background: #fff;
+  color: #909090;
+  
   border-radius: 100px;
   font-size: 14px;
   font-weight: 600;
@@ -177,7 +177,7 @@ a:focus-visible {
 
 .hero-button:hover {
   transform: translateY(-3px);
-  background: #e8e8e8;
+  color: #fff;
 }
 
 .hero-button span {
