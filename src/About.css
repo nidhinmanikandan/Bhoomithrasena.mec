@@ -1,24 +1,26 @@
 /* ============================================================
    About section — scoped to .about
-   Tokens are local to this section; nothing is added to :root.
+   Columns line up with the fixed grid (4% / 34.67% / 65.33% / 96%).
    ============================================================ */
 
 .about {
   --about-bg: #06100a;
   --about-text: #ffffff;
-  --about-muted: rgba(255, 255, 255, 0.62);
+  --about-muted: rgba(255, 255, 255, 0.5);
   --about-olive: #a3ad86;
   --about-line: rgba(255, 255, 255, 0.2);
-  --about-pad-x: 4%;
+  --about-inset: clamp(8px, 0.6vw, 12px); /* same inset as the grid HUD */
 
   position: relative;
   isolation: isolate;
   width: 100%;
-  padding: clamp(72px, 12vw, 180px) 0 clamp(40px, 5vw, 72px);
+  min-height: 100svh;
+  padding: clamp(96px, 15vh, 170px) 0 clamp(72px, 12vh, 140px);
   overflow: hidden;
   color: var(--about-text);
   background: var(--about-bg);
   font-family: "DM Sans", sans-serif;
+  font-kerning: normal;
 }
 
 /* Soft blend from the hero's near-black into the green */
@@ -34,41 +36,53 @@
   background: linear-gradient(180deg, #030303, rgba(3, 3, 3, 0));
 }
 
-/* Reuses the existing .grain-overlay from the hero styles */
+/* Reuses the hero's .grain-overlay, quieter here */
 .about .grain-overlay {
   opacity: 0.07;
 }
 
+/* 3 equal columns = the 3 spaces between the 4 fixed grid lines */
 .about__inner {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 1600px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 92%;
   margin: 0 auto;
-  padding: 0 var(--about-pad-x);
 }
 
-/* ---------- Top rule + eyebrow ---------- */
+/* ---------- Column 1: image space ---------- */
 
-.about__top {
-  position: relative;
+.about__media {
+  grid-column: 1;
+  align-self: start;
+  width: 73%;
+  margin: 0 0 0 var(--about-inset);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.025);
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  outline-offset: -1px;
 }
 
-.about__rule {
+.about__media img {
   display: block;
   width: 100%;
-  height: 1px;
-  background: var(--about-line);
+  height: 100%;
+  object-fit: cover;
 }
 
-.about__meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
+/* ---------- Columns 2–3: text ---------- */
+
+.about__content {
+  grid-column: 2 / span 2;
+  padding: 0 3% 0 var(--about-inset);
 }
 
 .about__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0;
   color: var(--about-olive);
   font-size: clamp(10px, 0.8vw, 12px);
@@ -76,70 +90,56 @@
   letter-spacing: 0.34em;
 }
 
-.about__index {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 11px;
-  letter-spacing: 0.04em;
+.about__dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--about-olive);
 }
 
-/* ---------- Heading ---------- */
-
 .about__heading {
-  margin: clamp(48px, 8vw, 120px) 0 0;
-  font-size: clamp(44px, 9.2vw, 148px);
+  margin: clamp(28px, 4.5vh, 56px) 0 0;
+  font-size: clamp(44px, 4.9vw, 96px);
   font-weight: 300;
-  line-height: 0.98;
+  line-height: 1;
   letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
 .about__line {
   display: block;
 }
 
-/* ---------- Body columns ---------- */
-
 .about__body {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(16px, 2vw, 32px);
-  row-gap: 32px;
-  margin-top: clamp(48px, 7vw, 112px);
+  margin-top: clamp(36px, 6vh, 72px);
 }
 
 .about__para {
+  max-width: 28em;
   margin: 0;
+  font-size: clamp(20px, 1.9vw, 36px);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+  text-wrap: pretty;
 }
 
 .about__lead {
-  grid-column: 1 / span 5;
-  max-width: 30em;
   color: var(--about-text);
-  font-size: clamp(20px, 1.9vw, 30px);
-  font-weight: 300;
-  line-height: 1.4;
-  letter-spacing: -0.015em;
 }
 
 .about__text {
-  grid-column: 7 / span 5;
-  max-width: 34em;
-  align-self: end;
+  margin-top: clamp(24px, 4vh, 48px);
   color: var(--about-muted);
-  font-size: clamp(15px, 1.1vw, 17px);
-  font-weight: 400;
-  line-height: 1.85;
 }
 
 /* ---------- Closing micro-text ---------- */
 
-.about__footer {
-  margin-top: clamp(72px, 10vw, 160px);
-  padding-top: 18px;
-  border-top: 1px solid var(--about-line);
-}
-
 .about__closing {
-  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: clamp(56px, 10vh, 120px) 0 0;
   color: var(--about-olive);
   font-size: clamp(10px, 0.8vw, 12px);
   font-weight: 500;
@@ -147,40 +147,61 @@
   line-height: 1.8;
 }
 
+.about__closing::before {
+  flex: none;
+  width: 48px;
+  height: 1px;
+  content: "";
+  background: var(--about-olive);
+  opacity: 0.6;
+}
+
 /* ---------- Tablet ---------- */
 
 @media (max-width: 1000px) {
-  .about__lead {
-    grid-column: 1 / span 7;
+  .about__media {
+    width: 82%;
   }
 
-  .about__text {
-    grid-column: 6 / span 7;
+  .about__para {
+    max-width: none;
+    font-size: clamp(18px, 2.2vw, 26px);
   }
 }
 
-/* ---------- Mobile ---------- */
+/* ---------- Mobile: stacked, lines at 6% / 50% / 94% ---------- */
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .about {
-    --about-pad-x: 6%;
-    padding-top: 80px;
+    padding: 96px 0 96px;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+    width: 88%;
+    row-gap: 48px;
+  }
+
+  .about__media,
+  .about__content {
+    grid-column: 1;
+  }
+
+  .about__media {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about__content {
+    padding: 0;
   }
 
   .about__heading {
-    font-size: clamp(42px, 14vw, 76px);
-    letter-spacing: -0.05em;
+    font-size: clamp(42px, 13vw, 68px);
   }
 
-  .about__body {
-    grid-template-columns: 1fr;
-    row-gap: 28px;
-  }
-
-  .about__lead,
-  .about__text {
-    grid-column: 1 / -1;
-    max-width: none;
+  .about__para {
+    font-size: clamp(19px, 5.4vw, 26px);
   }
 
   .about__eyebrow,

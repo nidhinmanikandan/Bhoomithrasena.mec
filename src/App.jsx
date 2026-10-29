@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import About from "./About";
+import GridOverlay from "./GridOverlay";
 
 export default function App() {
   const heroRef = useRef(null);
@@ -34,8 +35,11 @@ export default function App() {
     return () => ctx.revert();
   }, []);
 
+  
+
   return (
     <>
+    
       <main className="hero" ref={heroRef}>
         <div className="scene">
           <video className="scene-video" autoPlay loop muted playsInline aria-hidden="true">
@@ -73,8 +77,13 @@ export default function App() {
           <span>01 / 03</span>
         </div>
       </main>
-      <About />
+      <div className="content-world">
+        <GridOverlay />
+        <div className="content-sections">
+          <About />
+        </div>
+      </div>
+      
     </>
   );
 }
-

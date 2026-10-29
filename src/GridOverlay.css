@@ -1,0 +1,41 @@
+.content-world {
+  position: relative;
+  isolation: isolate;
+  background: #101b16;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(100% - 1px),
+      rgba(210, 225, 205, 0.12) calc(100% - 1px),
+      rgba(210, 225, 205, 0.12) 100%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 299px,
+      rgba(210, 225, 205, 0.12) 299px,
+      rgba(210, 225, 205, 0.12) 300px
+    );
+
+  background-size:
+    calc(100% / 12) 100%,
+    100% 300px;
+}
+
+.content-sections {
+  position: relative;
+  z-index: 1;
+}
+
+.content-sections > section {
+  position: relative;
+}
