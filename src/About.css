@@ -12,7 +12,6 @@
   --about-inset: clamp(8px, 0.6vw, 12px); /* same inset as the grid HUD */
 
   position: relative;
-  isolation: isolate;
   width: 100%;
   min-height: 100svh;
   padding: clamp(96px, 15vh, 170px) 0 clamp(72px, 12vh, 140px);
@@ -117,9 +116,9 @@
 .about__para {
   max-width: 28em;
   margin: 0;
-  font-size: clamp(20px, 1.9vw, 36px);
-  font-weight: 300;
-  line-height: 1.28;
+  font-size: clamp(20px, 1.9vw, 32px);
+  font-weight: 400;
+  line-height: 1.0;
   letter-spacing: -0.035em;
   text-wrap: pretty;
 }
