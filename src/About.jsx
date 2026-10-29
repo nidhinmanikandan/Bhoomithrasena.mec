@@ -73,8 +73,8 @@ export default function About() {
           </p>
 
           <h2 className="about__heading">
-            <span className="about__line">Where awareness</span>{" "}
-            <span className="about__line">takes root.</span>
+            {/* <span className="about__line">Where awareness</span>{" "}
+            <span className="about__line">takes root.</span> */}
           </h2>
 
           <div className="about__body">
