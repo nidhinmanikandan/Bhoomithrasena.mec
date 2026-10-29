@@ -59,10 +59,8 @@ export default function About() {
       <div className="grain-overlay" aria-hidden="true" />
 
       <div className="about__inner">
-        {/* Column 1 — image space.
-            Put your <img src="..." alt="..." /> inside this figure. */}
         <figure className="about__media">
-          {/* <img src="" alt="" /> */}
+          <img src="/about-bms-logo-grass.png" alt="Bhoomithrasena MEC nature emblem" />
         </figure>
 
         {/* Columns 2–3 — text */}
@@ -72,10 +70,10 @@ export default function About() {
             WHO WE ARE
           </p>
 
-          <h2 className="about__heading">
-            {/* <span className="about__line">Where awareness</span>{" "}
-            <span className="about__line">takes root.</span> */}
-          </h2>
+          {/* <h2 className="about__heading">
+            <span className="about__line">Where awareness</span>{" "}
+            <span className="about__line">takes root.</span>
+          </h2> */}
 
           <div className="about__body">
             <p className="about__para about__lead">
