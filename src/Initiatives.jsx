@@ -10,9 +10,16 @@ export default function Initiatives() {
   const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
+    const aboutSection = document.getElementById("about");
+    const contentWorld = sectionRef.current?.closest(".content-world");
+
+    if (!aboutSection || !contentWorld || !sectionRef.current) {
+      return;
+    }
+
     const context = gsap.context(() => {
-      gsap.to(sectionRef.current, {
-        "--initiatives-transition": 1,
+      gsap.to([aboutSection, contentWorld], {
+        backgroundColor: "#121417",
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,

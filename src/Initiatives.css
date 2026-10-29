@@ -9,19 +9,8 @@
   justify-content: center;
   overflow: hidden;
   padding: 8vw 4%;
-  background-color: #06100a;
-  --initiatives-transition: 0;
+  background-color: transparent;
   color: #f5f5f0;
-}
-
-.initiatives-intro::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  content: "";
-  pointer-events: none;
-  opacity: var(--initiatives-transition);
-  background: linear-gradient(180deg, #06100a 0%, #030604 60%);
 }
 
 .initiatives-heading {
@@ -41,7 +30,7 @@
   margin: 0;
   font-size: clamp(4rem, 15vw, 18rem);
   line-height: 0.85;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.09em;
   white-space: nowrap;
 }
