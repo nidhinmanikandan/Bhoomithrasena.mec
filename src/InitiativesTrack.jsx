@@ -59,6 +59,9 @@ export default function InitiativesTrack() {
 
     if (!section || !track) return;
 
+    const aboutSection = document.getElementById("about");
+    const contentWorld = section.closest(".content-world");
+
     const ctx = gsap.context(() => {
       const getScrollDistance = () =>
         Math.max(0, track.scrollWidth - window.innerWidth);
@@ -76,6 +79,19 @@ export default function InitiativesTrack() {
           invalidateOnRefresh: true,
         },
       });
+
+      if (aboutSection && contentWorld) {
+        gsap.to([aboutSection, contentWorld], {
+          backgroundColor: "#121417",
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+          },
+        });
+      }
     }, section);
 
     const refresh = () => ScrollTrigger.refresh();
@@ -102,10 +118,29 @@ export default function InitiativesTrack() {
   return (
     <section
       className="initiatives-track-section"
+      id="initiatives"
       ref={sectionRef}
       aria-label="Our environmental initiatives"
     >
       <div className="initiatives-track" ref={trackRef}>
+        <div className="initiatives-intro">
+          <div className="initiatives-heading">
+            <span className="initiatives-eyebrow">02 / WHAT WE DO</span>
+
+            <h2>INITIATIVES</h2>
+
+            <p>
+              Small actions. Meaningful change.
+              <br />
+              Explore how we make a difference.
+            </p>
+          </div>
+
+          <span className="initiatives-index">
+            SCROLL TO EXPLORE<span>→</span>
+          </span>
+        </div>
+
         {initiatives.map((item) => (
           <article className="initiative-panel" key={item.number}>
             <div className="initiative-copy">
