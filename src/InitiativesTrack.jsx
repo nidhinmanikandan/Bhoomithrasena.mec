@@ -10,6 +10,7 @@ const initiatives = [
   {
     number: "01",
     title: "E-Waste Collection",
+    titleClass: "initiative-title--ewaste",
     subtitle: "RESPONSIBLE DISPOSAL",
     description:
       "Giving discarded electronics a better future through responsible collection, recycling, and environmental awareness.",
@@ -18,6 +19,7 @@ const initiatives = [
   {
     number: "02",
     title: "HackEarth",
+    titleClass: "initiative-title--hackearth",
     subtitle: "TECH FOR THE PLANET",
     description:
       "Bringing students, creativity, and technology together to explore innovative solutions to environmental challenges.",
@@ -26,6 +28,7 @@ const initiatives = [
   {
     number: "03",
     title: "The Pen Box Initiative",
+    titleClass: "initiative-title--penbox",
     subtitle: "SMALL THINGS MATTER",
     description:
       "Collecting used pens and encouraging responsible disposal to reduce everyday plastic waste.",
@@ -34,6 +37,7 @@ const initiatives = [
   {
     number: "04",
     title: "Plant a Tree for Each Event",
+    titleClass: "initiative-title--tree",
     subtitle: "LET EVERY EVENT GROW",
     description:
       "Turning campus events into opportunities to nurture greener spaces, one sapling at a time.",
@@ -42,6 +46,7 @@ const initiatives = [
   {
     number: "05",
     title: "Nature Visits",
+    titleClass: "initiative-title--visits",
     subtitle: "STEP INTO THE WILD",
     description:
       "Taking learning beyond the classroom and helping students build a deeper connection with the natural world.",
@@ -153,7 +158,9 @@ export default function InitiativesTrack() {
                   {item.subtitle}
                 </span>
 
-                <h3>{item.title}</h3>
+                <h3 className={`initiative-title ${item.titleClass}`}>
+                  {item.title}
+                </h3>
               </div>
 
               <div className="initiative-description">
