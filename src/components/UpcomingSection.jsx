@@ -32,12 +32,7 @@ export default function UpcomingSection() {
             {HACKEARTH.title}
           </h2>
 
-          <p className="hackearth-sub-subtitle">
-            Code with nature in mind.
-          </p>
         </div>
-
-        
 
         <div className="hackearth-visual">
           <img
@@ -46,7 +41,10 @@ export default function UpcomingSection() {
             loading="lazy"
           />
         </div>
-        
+
+        <p className="hackearth-sub-subtitle">
+          Code with nature in mind.
+        </p>
 
         {/* Event information */}
         <div className="hackearth-copy">
@@ -73,11 +71,10 @@ export default function UpcomingSection() {
         </div>
 
         {/* Footer note */}
-        <div className="hackearth-footer">
+        {/* <div className="hackearth-footer">
           <span>INNOVATION WITH PURPOSE</span>
           <span>ENVIRONMENT × TECHNOLOGY</span>
-        </div>
-        
+        </div> */}
       </div>
     </section>
   );

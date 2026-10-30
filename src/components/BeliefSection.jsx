@@ -19,20 +19,16 @@ export default function BeliefSection() {
         <div className="belief-heading">
           <h2 className="belief-title" id="belief-title">
             <span>A BETTER PLANET</span>
-            <span>BEGINS WITH US.</span>
+            <span>BEGINS <span>WITH US.</span></span>
           </h2>
         </div>
 
-        {/* Optional visual area */}
-        <div
+        <img
           className="belief-visual"
-          aria-label="Reserved space for a nature image"
-        >
-          <span className="visual-index">02 / OUR PURPOSE</span>
-          <span className="visual-placeholder-label">
-            IMAGE AREA
-          </span>
-        </div>
+          src="/running-grass.png"
+          alt="A figure made of grass and flowers"
+          loading="lazy"
+        />
 
         {/* Supporting copy */}
         <div className="belief-copy">
