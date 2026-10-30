@@ -56,6 +56,7 @@ const initiatives = [
 ];
 
 const MAX_PARTICLE_ZOOM_UNITS = Math.log(15) / Math.log(1 / 0.95);
+const MAX_TREE_HEADING_SCALE = 1.5;
 
 export default function InitiativesTrack() {
   const sectionRef = useRef(null);
@@ -71,6 +72,7 @@ export default function InitiativesTrack() {
     const aboutSection = document.getElementById("about");
     const contentWorld = section.closest(".content-world");
     let particleZoomUnits = 0;
+    let treeHeading;
     const relayPointerMove = (event) => {
       const frame = particleFrameRef.current;
       const frameWindow = frame?.contentWindow;
@@ -126,11 +128,35 @@ export default function InitiativesTrack() {
         })
       );
       particleZoomUnits += zoomingIn ? forwardedUnits : -forwardedUnits;
+      const zoomProgress = Math.max(
+        0,
+        Math.min(1, particleZoomUnits / MAX_PARTICLE_ZOOM_UNITS)
+      );
+      if (treeHeading) {
+        const headingScale =
+          1 + (MAX_TREE_HEADING_SCALE - 1) * zoomProgress;
+        gsap.to(treeHeading, {
+          scaleX: headingScale,
+          scaleY: headingScale,
+          duration: 0.25,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
+      }
     };
     window.addEventListener("pointermove", relayPointerMove);
     window.addEventListener("wheel", relayWheel, { passive: false });
 
     const ctx = gsap.context(() => {
+      treeHeading = section.querySelector(".initiative-title--tree");
+      if (treeHeading) {
+        gsap.set(treeHeading, {
+          scaleX: 1,
+          scaleY: 1,
+          transformOrigin: "left center",
+        });
+      }
+
       const getScrollDistance = () =>
         Math.max(0, track.scrollWidth - window.innerWidth);
 
