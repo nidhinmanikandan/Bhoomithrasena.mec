@@ -55,9 +55,7 @@ const initiatives = [
   },
 ];
 
-const MAX_PARTICLE_ZOOM_STEPS = Math.ceil(
-  Math.log(1 / 15) / Math.log(0.95)
-);
+const MAX_PARTICLE_ZOOM_UNITS = Math.log(15) / Math.log(1 / 0.95);
 
 export default function InitiativesTrack() {
   const sectionRef = useRef(null);
@@ -72,7 +70,7 @@ export default function InitiativesTrack() {
 
     const aboutSection = document.getElementById("about");
     const contentWorld = section.closest(".content-world");
-    let particleZoomSteps = 0;
+    let particleZoomUnits = 0;
     const relayPointerMove = (event) => {
       const frame = particleFrameRef.current;
       const frameWindow = frame?.contentWindow;
@@ -102,32 +100,32 @@ export default function InitiativesTrack() {
       }
 
       const zoomingIn = event.deltaY > 0;
-      if (
-        (zoomingIn && particleZoomSteps >= MAX_PARTICLE_ZOOM_STEPS) ||
-        (!zoomingIn && particleZoomSteps === 0)
-      ) {
+      const deltaMultiplier =
+        event.deltaMode === WheelEvent.DOM_DELTA_LINE
+          ? 16
+          : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+            ? window.innerHeight
+            : 1;
+      const requestedUnits = (Math.abs(event.deltaY) * deltaMultiplier) / 100;
+      const availableUnits = zoomingIn
+        ? MAX_PARTICLE_ZOOM_UNITS - particleZoomUnits
+        : particleZoomUnits;
+      const forwardedUnits = Math.min(requestedUnits, availableUnits);
+      if (forwardedUnits <= 0) {
         return;
       }
 
       event.preventDefault();
       canvas.dispatchEvent(
         new frameWindow.WheelEvent("wheel", {
-          deltaX: event.deltaX,
-          deltaY: -event.deltaY,
-          deltaZ: event.deltaZ,
-          deltaMode: event.deltaMode,
+          deltaY: -Math.sign(event.deltaY) * forwardedUnits * 100,
+          deltaMode: WheelEvent.DOM_DELTA_PIXEL,
           ctrlKey: event.ctrlKey,
           bubbles: true,
           cancelable: true,
         })
       );
-      particleZoomSteps = Math.max(
-        0,
-        Math.min(
-          MAX_PARTICLE_ZOOM_STEPS,
-          particleZoomSteps + (zoomingIn ? 1 : -1)
-        )
-      );
+      particleZoomUnits += zoomingIn ? forwardedUnits : -forwardedUnits;
     };
     window.addEventListener("pointermove", relayPointerMove);
     window.addEventListener("wheel", relayWheel, { passive: false });
