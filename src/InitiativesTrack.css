@@ -89,14 +89,14 @@
 .initiative-title--ewaste {
   max-width: 9ch;
   margin-bottom: -4rem;
-  font-size: clamp(1.5rem, 3.3vw, 3.5rem);
+  font-size: clamp(1.5rem, 5vw, 6rem);
   line-height: 0.95;
 }
 
 .initiative-title--hackearth {
   max-width: 100%;
-  margin-bottom: -4rem;
-  font-size: clamp(1.5rem, 3.3vw, 3.5rem);
+  margin-bottom: -8rem;
+  font-size: clamp(1.5rem, 6vw, 6rem);
   line-height: 0.95;
   white-space: nowrap;
 }
@@ -104,14 +104,14 @@
 .initiative-title--penbox {
   max-width: 9ch;
   margin-bottom: -4rem;
-  font-size: clamp(1.5rem, 3.1vw, 3.35rem);
+  font-size: clamp(1.5rem, 5vw, 6rem);
   line-height: 0.95;
 }
 
 .initiative-title--tree {
   max-width: 10ch;
   margin-bottom: -4rem;
-  font-size: clamp(1.4rem, 2.8vw, 3rem);
+  font-size: clamp(1.4rem, 4.5vw, 5rem);
   line-height: 0.98;
 }
 
