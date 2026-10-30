@@ -4,6 +4,7 @@ import About from "./About";
 import GridOverlay from "./GridOverlay";
 import Initiatives from "./Initiatives";
 import LeafTransition from "./LeafTransition";
+import EventsSection from "./EventsSection";
 
 export default function App() {
   useLayoutEffect(() => {
@@ -82,6 +83,7 @@ export default function App() {
           <About />
           <LeafTransition />
           <Initiatives />
+          <EventsSection />
         </div>
       </div>
       
