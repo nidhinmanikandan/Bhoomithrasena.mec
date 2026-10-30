@@ -38,7 +38,7 @@
 }
 
 .events-section__heading span {
-  color: #a6b68a;
+  color: #ffffff;
 }
 
 .events-section__intro {
@@ -53,15 +53,15 @@
 .events-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 32px;
   align-items: start;
 }
 
 .event-card {
   min-width: 0;
-  border: 1px solid rgba(220, 230, 215, 0.16);
+  
   background: rgba(255, 255, 255, 0.015);
-  transition: border-color 0.35s ease;
+  
 }
 
 .event-card:nth-child(2) {
@@ -79,7 +79,7 @@
 .event-card__visual {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 4.5;
+  aspect-ratio: 4 / 3.5;
   background: #111713;
 }
 
@@ -134,17 +134,17 @@
 }
 
 .event-card__content {
-  padding: 22px 20px 26px;
+  padding: 18px 20px 20px;
 }
 
 .event-card__category {
-  color: #a6b68a;
+  color: #ffffff;
   font-size: 9px;
   letter-spacing: 0.13em;
 }
 
 .event-card__title {
-  margin: 17px 0 10px;
+  margin: 12px 0 8px;
   font-size: clamp(23px, 2.3vw, 34px);
   line-height: 1.05;
   font-weight: 400;

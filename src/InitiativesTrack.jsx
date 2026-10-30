@@ -153,7 +153,7 @@ export default function InitiativesTrack() {
         gsap.set(treeHeading, {
           scaleX: 1,
           scaleY: 1,
-          transformOrigin: "left center",
+          transformOrigin: "left top",
         });
       }
 

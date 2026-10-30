@@ -5,6 +5,8 @@ import GridOverlay from "./GridOverlay";
 import Initiatives from "./Initiatives";
 import LeafTransition from "./LeafTransition";
 import EventsSection from "./EventsSection";
+import UpcomingSection from "./components/UpcomingSection";
+import BeliefSection from "./components/BeliefSection";
 
 export default function App() {
   useLayoutEffect(() => {
@@ -36,14 +38,18 @@ export default function App() {
     return () => ctx.revert();
   }, []);
 
-  
-
   return (
     <>
-    
       <main className="hero">
         <div className="scene">
-          <video className="scene-video" autoPlay loop muted playsInline aria-hidden="true">
+          <video
+            className="scene-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+          >
             <source
               src="/Firefly%20just%20open%20the%20eyes%20and%20make%20the%20leafs%20are%20slghtly%20moving%20by%20the%20wind%20361508.mp4"
               type="video/mp4"
@@ -63,7 +69,6 @@ export default function App() {
         <a className="hero-button" href="#about">
           Explore our world <span>↗</span>
         </a>
-
       </main>
       <header className="navbar">
         <a className="hero-logo" href="#" aria-label="Flower World home">
@@ -84,9 +89,10 @@ export default function App() {
           <LeafTransition />
           <Initiatives />
           <EventsSection />
+          <UpcomingSection />
+          <BeliefSection />
         </div>
       </div>
-      
     </>
   );
 }
