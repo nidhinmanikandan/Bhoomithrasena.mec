@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const initiatives = [
   {
     number: "01",
-    title: "E-Waste Collection",
+    title: "E-WASTE COLLECTION",
     titleClass: "initiative-title--ewaste",
     subtitle: "RESPONSIBLE DISPOSAL",
     description:
@@ -18,7 +18,7 @@ const initiatives = [
   },
   {
     number: "02",
-    title: "HackEarth",
+    title: "HACKEARTH",
     titleClass: "initiative-title--hackearth",
     subtitle: "TECH FOR THE PLANET",
     description:
@@ -27,30 +27,32 @@ const initiatives = [
   },
   {
     number: "03",
-    title: "The Pen Box Initiative",
+    title: "THE PEN BOX INITIATIVE",
     titleClass: "initiative-title--penbox",
     subtitle: "SMALL THINGS MATTER",
     description:
       "Collecting used pens and encouraging responsible disposal to reduce everyday plastic waste.",
     image: "/initiatives/pen-box.jpg",
   },
-  {
-    number: "04",
-    title: "Plant a Tree for Each Event",
-    titleClass: "initiative-title--tree",
-    subtitle: "LET EVERY EVENT GROW",
-    description:
-      "Turning campus events into opportunities to nurture greener spaces, one sapling at a time.",
-    image: "/initiatives/tree-planting.jpg",
-  },
+  
   {
     number: "05",
-    title: "Nature Visits",
+    title: "NATURE VISITS",
     titleClass: "initiative-title--visits",
     subtitle: "STEP INTO THE WILD",
     description:
       "Taking learning beyond the classroom and helping students build a deeper connection with the natural world.",
     image: "/initiatives/nature-visits.jpg",
+  },
+
+  {
+    number: "04",
+    title: "PLANT A TREE FOR EACH EVENT",
+    titleClass: "initiative-title--tree",
+    subtitle: "LET EVERY EVENT GROW",
+    description:
+      "Turning campus events into opportunities to nurture greener spaces, one sapling at a time.",
+    image: "/initiatives/tree-planting.jpg",
   },
 ];
 
@@ -154,9 +156,9 @@ export default function InitiativesTrack() {
                   {item.number} / 05
                 </span>
 
-                <span className="initiative-subtitle">
+                {/* <span className="initiative-subtitle">
                   {item.subtitle}
-                </span>
+                </span> */}
 
                 <h3 className={`initiative-title ${item.titleClass}`}>
                   {item.title}
@@ -166,9 +168,9 @@ export default function InitiativesTrack() {
               <div className="initiative-description">
                 <p>{item.description}</p>
 
-                <span className="initiative-bottom-label">
+                {/* <span className="initiative-bottom-label">
                   BHOOMITHRASENA MEC
-                </span>
+                </span> */}
               </div>
             </div>
 
@@ -183,9 +185,9 @@ export default function InitiativesTrack() {
               </span>
             </div>
 
-            <span className="initiative-panel-counter">
+            {/* <span className="initiative-panel-counter">
               {item.number} — 05
-            </span>
+            </span> */}
           </article>
         ))}
       </div>
