@@ -7,6 +7,7 @@ import LeafTransition from "./LeafTransition";
 import EventsSection from "./EventsSection";
 import UpcomingSection from "./components/UpcomingSection";
 import BeliefSection from "./components/BeliefSection";
+import SiteFooter from "./components/SiteFooter";
 
 export default function App() {
   useLayoutEffect(() => {
@@ -91,6 +92,7 @@ export default function App() {
           <EventsSection />
           <UpcomingSection />
           <BeliefSection />
+          <SiteFooter />
         </div>
       </div>
     </>
