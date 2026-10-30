@@ -3,6 +3,7 @@ import gsap from "gsap";
 import About from "./About";
 import GridOverlay from "./GridOverlay";
 import Initiatives from "./Initiatives";
+import LeafTransition from "./LeafTransition";
 
 export default function App() {
   useLayoutEffect(() => {
@@ -79,6 +80,7 @@ export default function App() {
         <GridOverlay />
         <div className="content-sections">
           <About />
+          <LeafTransition />
           <Initiatives />
         </div>
       </div>

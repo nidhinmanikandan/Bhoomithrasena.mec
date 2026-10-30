@@ -158,6 +158,10 @@
   background: transparent;
 }
 
+.initiative-visual--visits {
+  background: transparent;
+}
+
 .initiative-visual img {
   display: block;
   width: 100%;
@@ -166,24 +170,37 @@
 }
 
 .initiative-visual .initiative-recycle-logo,
-.initiative-visual .initiative-penbox-grass {
+.initiative-visual .initiative-penbox-grass
+{
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: 1;
-  width: 160%;
-  height: 160%;
+  width: 200%;
+  height: 200%;
   object-fit: contain;
   transform: translate(-50%, -50%);
 }
 
-.initiative-visual .initiative-man-flying{
+.initiative-visual .initiative-man-flying
+{
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: 1;
-  width: 300%;
-  height: 300%;
+  width: 400%;
+  height: 400%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+
+.initiative-visual .initiative-flying-land{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 250%;
+  height: 250%;
   object-fit: contain;
   transform: translate(-50%, -50%);
 }

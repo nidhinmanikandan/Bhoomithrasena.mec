@@ -1,0 +1,46 @@
+.leaf-transition {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: clamp(1.5rem, 0vh, 2.5rem);
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
+}
+
+.leaf-transition__layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.leaf-transition__leaf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(clamp(170px, 30vw, 480px) * var(--leaf-scale));
+  will-change: transform;
+}
+
+.leaf-transition__tilt {
+  position: relative;
+  width: 100%;
+}
+
+.leaf-transition__leaf img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 28px 30px rgba(0, 0, 0, 0.22));
+}
+
+.leaf-transition__leaf img + img {
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 600px) {
+  .leaf-transition__leaf {
+    width: calc(54vw * var(--leaf-scale));
+  }
+}

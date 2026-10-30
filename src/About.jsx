@@ -75,21 +75,38 @@ export default function About() {
             <span className="about__line">takes root.</span>
           </h2> */}
 
-          <div className="about__body">
-            <p className="about__para about__lead">
-              Bhoomithrasena MEC is the Nature Club of Government Model
-              Engineering College, bringing students together to explore,
-              understand, and protect the environment.
-            </p>
+          
+<div className="about__body">
+  <p className="about__para about__lead">
+    <span className="about__highlight">
+      Bhoomithrasena MEC
+    </span>{" "}
+    is the <span className="about__highlight">
+      Nature Club
+    </span>{" "}
+    of <span className="about__highlight">Government Model Engineering College,</span>{" "} bringing students
+    together to{" "}
+    <span className="about__highlight">
+      explore, understand, and protect
+    </span>{" "}
+    the environment.
+  </p>
 
-            <p className="about__para about__text">
-              Through hands-on activities, creative initiatives, and
-              environmental awareness programmes, we encourage students to turn
-              small actions into meaningful change. From responsible waste
-              management to exploring the natural world, we believe every effort
-              can contribute to a greener future.
-            </p>
-          </div>
+  <p className="about__para about__text">
+    Through hands-on activities, creative initiatives, and
+    environmental awareness programmes, we encourage students
+    to turn small actions into{" "}
+    <span className="about__highlight">
+      meaningful change
+    </span>.
+    From responsible waste management to exploring the natural
+    world, we believe every effort can contribute to a{" "}
+    <span className="about__highlight">
+      greener future
+    </span>.
+  </p>
+</div>
+
 
           <p className="about__closing">GROWING A GREENER TOMORROW, TOGETHER.</p>
         </div>

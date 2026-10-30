@@ -35,6 +35,12 @@
   background: linear-gradient(180deg, #030303, rgba(3, 3, 3, 0));
 }
 
+
+.about__highlight {
+  color: #ffffff;
+}
+
+
 /* Reuses the hero's .grain-overlay, quieter here */
 .about .grain-overlay {
   opacity: 0.00;
@@ -128,10 +134,11 @@
   line-height: 1.0;
   letter-spacing: -0.035em;
   text-wrap: pretty;
+  
 }
 
 .about__lead {
-  color: var(--about-text);
+  color: var(--about-muted);
 }
 
 .about__text {

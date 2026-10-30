@@ -187,11 +187,16 @@ export default function InitiativesTrack() {
                 item.titleClass === "initiative-title--penbox"
                   ? " initiative-visual--penbox"
                   : ""
+              }${
+                item.titleClass === "initiative-title--visits"
+                  ? " initiative-visual--visits"
+                  : ""
               }`}
             >
               {item.titleClass !== "initiative-title--ewaste" &&
                 item.titleClass !== "initiative-title--hackearth" &&
-                item.titleClass !== "initiative-title--penbox" && (
+                item.titleClass !== "initiative-title--penbox" &&
+                item.titleClass !== "initiative-title--visits" && (
                   <img
                     src={item.image}
                     alt={item.title}
@@ -219,6 +224,14 @@ export default function InitiativesTrack() {
                   className="initiative-penbox-grass"
                   src="/penbox-grass.png"
                   alt="Grass formed into a pen box"
+                  loading="eager"
+                />
+              )}
+              {item.titleClass === "initiative-title--visits" && (
+                <img
+                  className="initiative-flying-land"
+                  src="/flying-land.png"
+                  alt="A floating landscape"
                   loading="eager"
                 />
               )}
