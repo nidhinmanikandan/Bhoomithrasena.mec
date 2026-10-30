@@ -55,6 +55,10 @@ const initiatives = [
   },
 ];
 
+const MAX_PARTICLE_ZOOM_STEPS = Math.ceil(
+  Math.log(1 / 15) / Math.log(0.95)
+);
+
 export default function InitiativesTrack() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
@@ -68,6 +72,7 @@ export default function InitiativesTrack() {
 
     const aboutSection = document.getElementById("about");
     const contentWorld = section.closest(".content-world");
+    let particleZoomSteps = 0;
     const relayPointerMove = (event) => {
       const frame = particleFrameRef.current;
       const frameWindow = frame?.contentWindow;
@@ -90,11 +95,21 @@ export default function InitiativesTrack() {
         bounds.left > 1 ||
         bounds.right < window.innerWidth - 1 ||
         bounds.bottom <= 0 ||
-        bounds.top >= window.innerHeight
+        bounds.top >= window.innerHeight ||
+        event.deltaY === 0
       ) {
         return;
       }
 
+      const zoomingIn = event.deltaY > 0;
+      if (
+        (zoomingIn && particleZoomSteps >= MAX_PARTICLE_ZOOM_STEPS) ||
+        (!zoomingIn && particleZoomSteps === 0)
+      ) {
+        return;
+      }
+
+      event.preventDefault();
       canvas.dispatchEvent(
         new frameWindow.WheelEvent("wheel", {
           deltaX: event.deltaX,
@@ -106,9 +121,16 @@ export default function InitiativesTrack() {
           cancelable: true,
         })
       );
+      particleZoomSteps = Math.max(
+        0,
+        Math.min(
+          MAX_PARTICLE_ZOOM_STEPS,
+          particleZoomSteps + (zoomingIn ? 1 : -1)
+        )
+      );
     };
     window.addEventListener("pointermove", relayPointerMove);
-    window.addEventListener("wheel", relayWheel, { passive: true });
+    window.addEventListener("wheel", relayWheel, { passive: false });
 
     const ctx = gsap.context(() => {
       const getScrollDistance = () =>
@@ -130,11 +152,12 @@ export default function InitiativesTrack() {
         track,
         {
           x: () => -getScrollDistance(),
-          duration: 1,
+          duration: 0.9,
           ease: "none",
         },
         0
       );
+      horizontalTimeline.to({}, { duration: 0.1 }, 0.9);
 
       if (aboutSection && contentWorld) {
         gsap.to([aboutSection, section, contentWorld], {
