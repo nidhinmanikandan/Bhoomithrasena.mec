@@ -22,6 +22,7 @@
 }
 
 .site-footer__heading {
+  position: relative;
   grid-column: 1 / -1;
   grid-row: 2;
   display: flex;
@@ -37,6 +38,18 @@
 
 .site-footer__heading span:last-child {
   text-align: right;
+}
+
+.site-footer__heading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  z-index: 1;
+  width: clamp(72px, 20vw, 200px);
+  max-height: 2em;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
 .site-footer__intro {
@@ -164,6 +177,10 @@
 
   .site-footer__heading {
     font-size: clamp(2.5rem, 12vw, 4.5rem);
+  }
+
+  .site-footer__heading-image {
+    width: clamp(30px, 8vw, 44px);
   }
 
   .site-footer__intro {

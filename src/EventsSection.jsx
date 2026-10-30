@@ -4,25 +4,25 @@ import "./EventsSection.css";
 const events = [
   {
     number: "01",
-    title: "Treasure Hunt",
+    title: "ENVIHUNT 5.0",
     category: "CAMPUS · EXPLORATION",
-    image: "/images/events/treasure-hunt.jpg",
+    image: "/treasure-run.png",
     description:
       "Clues, teamwork, and a little adventure around campus.",
     className: "treasure",
   },
   {
     number: "02",
-    title: "Photography",
+    title: "PHOTOGRAPHY",
     category: "CREATIVITY · NATURE",
-    image: "/images/events/photography.jpg",
+    image: "/photography001.png",
     description:
       "Capturing the details of nature through a different lens.",
     className: "photography",
   },
   {
     number: "03",
-    title: "Beach Cleanup",
+    title: "BEACH CLEANUP",
     category: "COMMUNITY · NSS MEC",
     image: "/images/events/beach-cleanup.jpg",
     description:

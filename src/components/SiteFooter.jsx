@@ -11,6 +11,12 @@ export default function SiteFooter() {
 
         <h2 className="site-footer__heading">
           <span>CONNECT</span>
+          <img
+            className="site-footer__heading-image"
+            src="/connect.png"
+            alt=""
+            aria-hidden="true"
+          />
           <span>WITH US.</span>
         </h2>
 

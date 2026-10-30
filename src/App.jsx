@@ -99,9 +99,9 @@ export default function App() {
         onClose={closeMenu}
         triggerRef={menuButtonRef}
       />
-      <div className="bottom-note">
+      {/* <div className="bottom-note">
         <span>01 / 03</span>
-      </div>
+      </div> */}
       <div className="content-world">
         <GridOverlay />
         <div className="content-sections">
