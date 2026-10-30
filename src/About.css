@@ -53,12 +53,12 @@
 /* ---------- Column 1: image space ---------- */
 
 .about__media {
+  margin-top: clamp(16px, 4vh, 64px);
   grid-column: 1;
   align-self: start;
   width: 90%;
   position: sticky;
-  top: 24%;
-  transform: translateY(-50%);
+  top: calc((100svh - 27.6vw) / 2);
   margin: 0 0 0 var(--about-inset);
   aspect-ratio: 1 / 1;
   
@@ -167,6 +167,7 @@
 @media (max-width: 1000px) {
   .about__media {
     width: 82%;
+    top: calc((100svh - 25.13vw) / 2);
   }
 
   .about__para {
