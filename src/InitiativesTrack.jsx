@@ -81,7 +81,7 @@ export default function InitiativesTrack() {
       });
 
       if (aboutSection && contentWorld) {
-        gsap.to([aboutSection, contentWorld], {
+        gsap.to([aboutSection, section, contentWorld], {
           backgroundColor: "#121417",
           ease: "none",
           scrollTrigger: {
