@@ -19,7 +19,7 @@ export default function BeliefSection() {
         <div className="belief-heading">
           <h2 className="belief-title" id="belief-title">
             <span>A BETTER PLANET</span>
-            <span>BEGINS <span>WITH US.</span></span>
+            <span className="begins001">BEGINS <span>WITH US.</span></span>
           </h2>
         </div>
 

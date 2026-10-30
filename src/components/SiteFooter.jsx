@@ -44,8 +44,8 @@ export default function SiteFooter() {
         </div>
 
         <div className="site-footer__wordmark" aria-label="Bhoomithrasena MEC">
-          <p>BHOOMITHRASENA</p>
-          <span>MEC</span>
+          <p>bms.mec</p>
+          
         </div>
 
         <div className="site-footer__bottom">

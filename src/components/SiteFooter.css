@@ -111,12 +111,15 @@
 }
 
 .site-footer__wordmark p {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(2rem, 10.3vw, 9.5rem);
-  font-weight: 300;
+  font-size: clamp(2rem, 24vw, 24rem);
+  font-weight: 500;
   line-height: 0.88;
-  letter-spacing: -0.085em;
+  letter-spacing: -0.095em;
   white-space: nowrap;
+  color: #a7ff5e;
 }
 
 .site-footer__wordmark span {
@@ -186,8 +189,8 @@
   }
 
   .site-footer__wordmark p {
-    font-size: clamp(1.7rem, 10vw, 2.8rem);
-    letter-spacing: -0.09em;
+    font-size: clamp(1.9rem, 11vw, 3rem);
+    letter-spacing: -0.1em;
   }
 
   .site-footer__bottom {
