@@ -144,21 +144,25 @@ export default function InitiativesTrack() {
         {initiatives.map((item) => (
           <article className="initiative-panel" key={item.number}>
             <div className="initiative-copy">
-              <span className="initiative-number">
-                {item.number} / 05
-              </span>
+              <div className="initiative-heading">
+                <span className="initiative-number">
+                  {item.number} / 05
+                </span>
 
-              <span className="initiative-subtitle">
-                {item.subtitle}
-              </span>
+                <span className="initiative-subtitle">
+                  {item.subtitle}
+                </span>
 
-              <h3>{item.title}</h3>
+                <h3>{item.title}</h3>
+              </div>
 
-              <p>{item.description}</p>
+              <div className="initiative-description">
+                <p>{item.description}</p>
 
-              <span className="initiative-bottom-label">
-                BHOOMITHRASENA MEC
-              </span>
+                <span className="initiative-bottom-label">
+                  BHOOMITHRASENA MEC
+                </span>
+              </div>
             </div>
 
             <div className="initiative-visual">
