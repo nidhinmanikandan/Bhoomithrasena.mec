@@ -94,9 +94,9 @@
 }
 
 .initiative-title--hackearth {
-  max-width: 10ch;
+  max-width: 4ch;
   margin-bottom: -4rem;
-  font-size: clamp(1.5rem, 8vw, 8rem);
+  font-size: clamp(1.5rem, 6vw, 6rem);
   line-height: 0.95;
  
 }
@@ -161,8 +161,8 @@
   object-fit: cover;
 }
 
-.initiative-visual .initiative-recycle-logo,
-.initiative-visual .initiative-man-flying {
+.initiative-visual .initiative-recycle-logo
+ {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -172,6 +172,18 @@
   object-fit: contain;
   transform: translate(-50%, -50%);
 }
+
+.initiative-visual .initiative-man-flying{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 300%;
+  height: 300%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+
 
 .initiative-image-index {
   position: absolute;
