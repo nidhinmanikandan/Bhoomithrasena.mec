@@ -1,0 +1,148 @@
+
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./InitiativesTrack.css";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const initiatives = [
+  {
+    number: "01",
+    title: "E-Waste Collection",
+    subtitle: "RESPONSIBLE DISPOSAL",
+    description:
+      "Giving discarded electronics a better future through responsible collection, recycling, and environmental awareness.",
+    image: "/initiatives/ewaste.jpg",
+  },
+  {
+    number: "02",
+    title: "HackEarth",
+    subtitle: "TECH FOR THE PLANET",
+    description:
+      "Bringing students, creativity, and technology together to explore innovative solutions to environmental challenges.",
+    image: "/initiatives/hackearth.jpg",
+  },
+  {
+    number: "03",
+    title: "The Pen Box Initiative",
+    subtitle: "SMALL THINGS MATTER",
+    description:
+      "Collecting used pens and encouraging responsible disposal to reduce everyday plastic waste.",
+    image: "/initiatives/pen-box.jpg",
+  },
+  {
+    number: "04",
+    title: "Plant a Tree for Each Event",
+    subtitle: "LET EVERY EVENT GROW",
+    description:
+      "Turning campus events into opportunities to nurture greener spaces, one sapling at a time.",
+    image: "/initiatives/tree-planting.jpg",
+  },
+  {
+    number: "05",
+    title: "Nature Visits",
+    subtitle: "STEP INTO THE WILD",
+    description:
+      "Taking learning beyond the classroom and helping students build a deeper connection with the natural world.",
+    image: "/initiatives/nature-visits.jpg",
+  },
+];
+
+export default function InitiativesTrack() {
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const track = trackRef.current;
+
+    if (!section || !track) return;
+
+    const ctx = gsap.context(() => {
+      const getScrollDistance = () =>
+        Math.max(0, track.scrollWidth - window.innerWidth);
+
+      gsap.to(track, {
+        x: () => -getScrollDistance(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${getScrollDistance()}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }, section);
+
+    const refresh = () => ScrollTrigger.refresh();
+
+    window.addEventListener("load", refresh);
+    const images = track.querySelectorAll("img");
+    images.forEach((img) => {
+      if (!img.complete) {
+        img.addEventListener("load", refresh);
+        img.addEventListener("error", refresh);
+      }
+    });
+
+    return () => {
+      window.removeEventListener("load", refresh);
+      images.forEach((img) => {
+        img.removeEventListener("load", refresh);
+        img.removeEventListener("error", refresh);
+      });
+      ctx.revert();
+    };
+  }, []);
+
+  return (
+    <section
+      className="initiatives-track-section"
+      ref={sectionRef}
+      aria-label="Our environmental initiatives"
+    >
+      <div className="initiatives-track" ref={trackRef}>
+        {initiatives.map((item) => (
+          <article className="initiative-panel" key={item.number}>
+            <div className="initiative-copy">
+              <span className="initiative-number">
+                {item.number} / 05
+              </span>
+
+              <span className="initiative-subtitle">
+                {item.subtitle}
+              </span>
+
+              <h3>{item.title}</h3>
+
+              <p>{item.description}</p>
+
+              <span className="initiative-bottom-label">
+                BHOOMITHRASENA MEC
+              </span>
+            </div>
+
+            <div className="initiative-visual">
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="eager"
+              />
+              <span className="initiative-image-index">
+                {item.number}
+              </span>
+            </div>
+
+            <span className="initiative-panel-counter">
+              {item.number} — 05
+            </span>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

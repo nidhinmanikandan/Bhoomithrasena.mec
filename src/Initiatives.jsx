@@ -1,8 +1,8 @@
-
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Initiatives.css";
+import InitiativesTrack from "./InitiativesTrack";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,24 +34,25 @@ export default function Initiatives() {
   }, []);
 
   return (
-    <section className="initiatives-intro" id="initiatives" ref={sectionRef}>
-      <div className="initiatives-heading">
-        <span className="initiatives-eyebrow">
-          02 / WHAT WE DO
+    <>
+      <section className="initiatives-intro" id="initiatives" ref={sectionRef}>
+        <div className="initiatives-heading">
+          <span className="initiatives-eyebrow">02 / WHAT WE DO</span>
+
+          <h2>INITIATIVES</h2>
+
+          <p>
+            Small actions. Meaningful change.
+            <br />
+            Explore how we make a difference.
+          </p>
+        </div>
+
+        <span className="initiatives-index">
+          SCROLL TO EXPLORE<span>→</span>
         </span>
-
-        <h2>INITIATIVES</h2>
-
-        <p>
-          Small actions. Meaningful change.
-          <br />
-          Explore how we make a difference.
-        </p>
-      </div>
-
-      <span className="initiatives-index">
-        SCROLL TO EXPLORE<span>→</span>
-      </span>
-    </section>
+      </section>
+      <InitiativesTrack />
+    </>
   );
 }

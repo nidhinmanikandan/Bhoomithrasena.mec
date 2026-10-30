@@ -55,7 +55,7 @@
 .about__media {
   grid-column: 1;
   align-self: start;
-  width: 80%;
+  width: 90%;
   position: relative;
   top: 72px;
   margin: 0 0 0 var(--about-inset);
