@@ -15,7 +15,7 @@
   width: 100%;
   min-height: 100svh;
   padding: clamp(96px, 15vh, 170px) 0 clamp(72px, 12vh, 140px);
-  overflow: hidden;
+  overflow: clip;
   color: var(--about-text);
   background: var(--about-bg);
   font-family: "DM Sans", sans-serif;
@@ -56,8 +56,9 @@
   grid-column: 1;
   align-self: start;
   width: 90%;
-  position: relative;
-  top: 72px;
+  position: sticky;
+  top: 24%;
+  transform: translateY(-50%);
   margin: 0 0 0 var(--about-inset);
   aspect-ratio: 1 / 1;
   
@@ -193,6 +194,9 @@
   }
 
   .about__media {
+    position: relative;
+    top: auto;
+    transform: none;
     width: 100%;
     margin-left: 0;
   }
