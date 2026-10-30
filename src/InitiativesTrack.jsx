@@ -2,7 +2,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ParticleField from "./ParticleField";
 import "./InitiativesTrack.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,13 +52,13 @@ const initiatives = [
     subtitle: "LET EVERY EVENT GROW",
     description:
       "Turning campus events into opportunities to nurture greener spaces, one sapling at a time.",
-    image: "/initiatives/tree-planting.jpg",
   },
 ];
 
 export default function InitiativesTrack() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
+  const particleFrameRef = useRef(null);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -69,6 +68,47 @@ export default function InitiativesTrack() {
 
     const aboutSection = document.getElementById("about");
     const contentWorld = section.closest(".content-world");
+    const relayPointerMove = (event) => {
+      const frame = particleFrameRef.current;
+      const frameWindow = frame?.contentWindow;
+      if (!frameWindow) return;
+
+      frameWindow.dispatchEvent(
+        new frameWindow.PointerEvent("pointermove", {
+          clientX: (event.clientX / window.innerWidth) * frame.clientWidth,
+          clientY: (event.clientY / window.innerHeight) * frame.clientHeight,
+        })
+      );
+    };
+    const relayWheel = (event) => {
+      const frame = particleFrameRef.current;
+      const frameWindow = frame?.contentWindow;
+      const canvas = frameWindow?.document.querySelector("canvas");
+      if (!frameWindow || !canvas) return;
+      const bounds = frame.getBoundingClientRect();
+      if (
+        bounds.left > 1 ||
+        bounds.right < window.innerWidth - 1 ||
+        bounds.bottom <= 0 ||
+        bounds.top >= window.innerHeight
+      ) {
+        return;
+      }
+
+      canvas.dispatchEvent(
+        new frameWindow.WheelEvent("wheel", {
+          deltaX: event.deltaX,
+          deltaY: -event.deltaY,
+          deltaZ: event.deltaZ,
+          deltaMode: event.deltaMode,
+          ctrlKey: event.ctrlKey,
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+    };
+    window.addEventListener("pointermove", relayPointerMove);
+    window.addEventListener("wheel", relayWheel, { passive: true });
 
     const ctx = gsap.context(() => {
       const getScrollDistance = () =>
@@ -133,6 +173,8 @@ export default function InitiativesTrack() {
 
     return () => {
       window.removeEventListener("load", refresh);
+      window.removeEventListener("pointermove", relayPointerMove);
+      window.removeEventListener("wheel", relayWheel);
       images.forEach((img) => {
         img.removeEventListener("load", refresh);
         img.removeEventListener("error", refresh);
@@ -168,7 +210,14 @@ export default function InitiativesTrack() {
         </div>
 
         {initiatives.map((item) => (
-          <article className="initiative-panel" key={item.number}>
+          <article
+            className={`initiative-panel${
+              item.titleClass === "initiative-title--tree"
+                ? " initiative-panel--tree"
+                : ""
+            }`}
+            key={item.number}
+          >
             <div className="initiative-copy">
               <div className="initiative-heading">
                 <span className="initiative-number">
@@ -210,9 +259,14 @@ export default function InitiativesTrack() {
                 item.titleClass === "initiative-title--visits"
                   ? " initiative-visual--visits"
                   : ""
+              }${
+                item.titleClass === "initiative-title--tree"
+                  ? " initiative-visual--tree"
+                  : ""
               }`}
             >
-              {item.titleClass !== "initiative-title--ewaste" &&
+              {item.titleClass !== "initiative-title--tree" &&
+                item.titleClass !== "initiative-title--ewaste" &&
                 item.titleClass !== "initiative-title--hackearth" &&
                 item.titleClass !== "initiative-title--penbox" &&
                 item.titleClass !== "initiative-title--visits" && (
@@ -254,10 +308,18 @@ export default function InitiativesTrack() {
                   loading="eager"
                 />
               )}
-              {item.titleClass === "initiative-title--tree" && (
-                <ParticleField />
-              )}
             </div>
+            {item.titleClass === "initiative-title--tree" && (
+              <div className="initiative-tree-zoom">
+                <iframe
+                  ref={particleFrameRef}
+                  src="/particle-field.html"
+                  className="particle-overlay"
+                  title="Particle field animation"
+                  aria-hidden="true"
+                />
+              </div>
+            )}
 
             {/* <span className="initiative-panel-counter">
               {item.number} — 05
