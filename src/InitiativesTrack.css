@@ -154,6 +154,10 @@
   background: transparent;
 }
 
+.initiative-visual--penbox {
+  background: transparent;
+}
+
 .initiative-visual img {
   display: block;
   width: 100%;
@@ -161,8 +165,8 @@
   object-fit: cover;
 }
 
-.initiative-visual .initiative-recycle-logo
- {
+.initiative-visual .initiative-recycle-logo,
+.initiative-visual .initiative-penbox-grass {
   position: absolute;
   left: 50%;
   top: 50%;
