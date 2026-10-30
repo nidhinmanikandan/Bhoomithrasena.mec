@@ -2,6 +2,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ParticleField from "./ParticleField";
 import "./InitiativesTrack.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -73,9 +74,7 @@ export default function InitiativesTrack() {
       const getScrollDistance = () =>
         Math.max(0, track.scrollWidth - window.innerWidth);
 
-      gsap.to(track, {
-        x: () => -getScrollDistance(),
-        ease: "none",
+      const horizontalTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
@@ -86,6 +85,16 @@ export default function InitiativesTrack() {
           invalidateOnRefresh: true,
         },
       });
+
+      horizontalTimeline.to(
+        track,
+        {
+          x: () => -getScrollDistance(),
+          duration: 1,
+          ease: "none",
+        },
+        0
+      );
 
       if (aboutSection && contentWorld) {
         gsap.to([aboutSection, section, contentWorld], {
@@ -98,6 +107,16 @@ export default function InitiativesTrack() {
             scrub: true,
           },
         });
+
+        horizontalTimeline.to(
+          [aboutSection, section, contentWorld],
+          {
+            backgroundColor: "#0000",
+            duration: 0.2,
+            ease: "none",
+          },
+          0.8
+        );
       }
     }, section);
 
@@ -234,6 +253,9 @@ export default function InitiativesTrack() {
                   alt="A floating landscape"
                   loading="eager"
                 />
+              )}
+              {item.titleClass === "initiative-title--tree" && (
+                <ParticleField />
               )}
             </div>
 
