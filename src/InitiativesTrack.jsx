@@ -175,24 +175,37 @@ export default function InitiativesTrack() {
             </div>
 
             <div
-              className={`initiative-visual ${
+              className={`initiative-visual${
                 item.titleClass === "initiative-title--ewaste"
-                  ? "initiative-visual--ewaste"
+                  ? " initiative-visual--ewaste"
+                  : ""
+              }${
+                item.titleClass === "initiative-title--hackearth"
+                  ? " initiative-visual--hackearth"
                   : ""
               }`}
             >
-              {item.titleClass !== "initiative-title--ewaste" && (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="eager"
-                />
-              )}
+              {item.titleClass !== "initiative-title--ewaste" &&
+                item.titleClass !== "initiative-title--hackearth" && (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="eager"
+                  />
+                )}
               {item.titleClass === "initiative-title--ewaste" && (
                 <img
                   className="initiative-recycle-logo"
                   src="/recycle-logo.png"
                   alt="Recycle"
+                  loading="eager"
+                />
+              )}
+              {item.titleClass === "initiative-title--hackearth" && (
+                <img
+                  className="initiative-man-flying"
+                  src="/man-flying.png"
+                  alt="Person flying through nature"
                   loading="eager"
                 />
               )}
