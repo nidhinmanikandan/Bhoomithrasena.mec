@@ -95,10 +95,10 @@ export default function EventsSection() {
           ))}
         </div>
 
-        <footer className="events-section__footer">
+        {/* <footer className="events-section__footer">
           <span>SMALL EVENTS. LASTING IMPACT.</span>
           <span>BHOOMITHRASENA MEC · 05</span>
-        </footer>
+        </footer> */}
       </div>
     </section>
   );

@@ -27,7 +27,7 @@
   gap: 12px;
   align-items: center;
   margin-bottom: clamp(36px, 6vw, 80px);
-  font-size: 11px;
+  font-size: 24px;
   line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -41,7 +41,6 @@
 .visual-index,
 .visual-caption,
 .visual-placeholder-label,
-.event-meta-label,
 .hackearth-footer,
 .belief-footer {
   font-size: 10px;
@@ -108,10 +107,10 @@
 .hackearth-title {
   margin: 0;
   max-width: 100%;
-  font-size: clamp(48px, 10.5vw, 156px);
-  font-weight: 700;
-  line-height: 0.82;
-  letter-spacing: -0.075em;
+  font-size: clamp(4rem, 15vw, 18rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.09em;
   overflow-wrap: anywhere;
 }
 
@@ -121,34 +120,33 @@
 */
 
 .hackearth-title.initiative-title--tree {
-  font-size: clamp(48px, 10.5vw, 156px);
-  line-height: 0.82;
-  letter-spacing: -0.075em;
+  font-size: clamp(4rem, 8vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: -0.09em;
 }
 
 .hackearth-subtitle {
   max-width: 400px;
   margin: clamp(24px, 4vw, 48px) 0 0;
-  font-size: clamp(18px, 2.3vw, 30px);
-  line-height: 1.2;
-  letter-spacing: -0.035em;
 }
 
 .hackearth-visual {
-  grid-column: 9 / 13;
-  grid-row: 2 / 4;
-  align-self: start;
+  grid-column: 5 / 9;
+  grid-row: 3 / 5;
+  justify-self: center;
+  align-self: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  aspect-ratio: 4 / 5;
   min-width: 0;
-  padding: 12px;
-  margin-top: 8px;
-  background: transparent;
-  border: 1px solid currentColor;
-  border-color: color-mix(in srgb, currentColor 28%, transparent);
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.hackearth-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .visual-index,
@@ -164,52 +162,48 @@
 }
 
 .hackearth-copy {
-  grid-column: 2 / 7;
-  grid-row: 3;
-  align-self: start;
-  margin-top: clamp(44px, 8vw, 104px);
-  min-width: 0;
-}
-
-.hackearth-meta {
-  grid-column: 2 / 12;
+  grid-column: 9 / 13;
   grid-row: 4;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-  align-items: start;
-  margin-top: clamp(48px, 8vw, 104px);
-  padding-top: 20px;
-  border-top: 1px solid
-    color-mix(in srgb, currentColor 28%, transparent);
-}
-
-.event-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-self: end;
+  margin-top: clamp(24px, 4vw, 48px);
   min-width: 0;
 }
 
-.event-meta-label {
-  opacity: 0.6;
+.hackearth-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 48px;
+  margin-top: 16px;
+  padding: 0 24px;
+  border: 1px solid #f4f4ef;
+  border-radius: 999px;
+  color: #11130f;
+  background: #f4f4ef;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
-.event-meta-value {
-  font-size: clamp(12px, 1.15vw, 15px);
-  line-height: 1.5;
-  overflow-wrap: anywhere;
+.hackearth-register:hover {
+  color: #f4f4ef;
+  background: transparent;
+  transform: translateY(-2px);
 }
 
-.hackearth-link {
-  justify-self: start;
-  align-self: start;
-  margin-top: -8px;
+.hackearth-register:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 .hackearth-footer {
   grid-column: 1 / -1;
-  grid-row: 5;
+  grid-row: 6;
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -243,10 +237,10 @@
   flex-direction: column;
   gap: 0.02em;
   margin: 0;
-  font-size: clamp(36px, 7.5vw, 108px);
-  font-weight: 600;
-  line-height: 0.94;
-  letter-spacing: -0.065em;
+  font-size: clamp(4rem, 8vw, 12rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
 }
 
 .belief-title span {
@@ -280,16 +274,28 @@
 
 .belief-intro {
   margin: 0 0 28px;
-  font-size: clamp(17px, 1.7vw, 24px);
-  line-height: 1.45;
-  letter-spacing: -0.025em;
 }
 
 .belief-closing {
   margin: clamp(32px, 5vw, 60px) 0 0;
-  font-size: clamp(17px, 1.6vw, 22px);
-  line-height: 1.5;
-  letter-spacing: -0.02em;
+}
+
+.hackearth-subtitle,
+.hackearth-copy .feature-body,
+.belief-intro,
+.belief-copy .feature-body,
+.belief-closing {
+  color: rgba(230, 235, 226, 0.65);
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+.hackearth-sub-subtitle{
+  text-align: center;
+}
+
+.belief-intro {
+  margin-bottom: 28px;
 }
 
 .belief-footer {
@@ -320,29 +326,12 @@
     grid-column: 1 / 9;
   }
 
-  .hackearth-title,
-  .hackearth-title.initiative-title--tree {
-    font-size: clamp(48px, 10vw, 92px);
-  }
-
-  .hackearth-visual {
-    grid-column: 9 / 13;
-  }
-
   .hackearth-copy {
-    grid-column: 1 / 7;
-  }
-
-  .hackearth-meta {
-    grid-column: 1 / -1;
+    grid-column: 9 / 13;
   }
 
   .belief-heading {
     grid-column: 1 / -1;
-  }
-
-  .belief-title {
-    font-size: clamp(42px, 7.8vw, 76px);
   }
 
   .belief-visual {
@@ -377,20 +366,20 @@
 
   .hackearth-title,
   .hackearth-title.initiative-title--tree {
-    font-size: clamp(42px, 13vw, 76px);
-    line-height: 0.88;
-    letter-spacing: -0.065em;
+    font-size: 8vw;
+    line-height: 0.85;
+    letter-spacing: -0.07em;
   }
 
   .hackearth-subtitle {
     margin-top: 24px;
-    font-size: clamp(20px, 6vw, 27px);
   }
 
   .hackearth-visual {
-    grid-column: 2 / 5;
+    grid-column: 1 / 5;
     grid-row: 3;
-    aspect-ratio: 4 / 3;
+    justify-self: center;
+    width: min(100%, 360px);
     margin-top: 40px;
   }
 
@@ -400,21 +389,9 @@
     margin-top: 36px;
   }
 
-  .hackearth-meta {
-    grid-column: 1 / 5;
-    grid-row: 5;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 16px;
-    margin-top: 36px;
-  }
-
-  .hackearth-link {
-    margin-top: 0;
-  }
-
   .hackearth-footer {
     grid-column: 1 / 5;
-    grid-row: 6;
+    grid-row: 5;
     flex-wrap: wrap;
     margin-top: 40px;
   }
@@ -425,9 +402,9 @@
   }
 
   .belief-title {
-    font-size: clamp(35px, 10.5vw, 58px);
-    line-height: 0.96;
-    letter-spacing: -0.06em;
+    font-size: 8vw;
+    line-height: 0.85;
+    letter-spacing: -0.07em;
   }
 
   .belief-visual {
@@ -441,10 +418,6 @@
     grid-column: 1 / 5;
     grid-row: 4;
     margin-top: 36px;
-  }
-
-  .belief-intro {
-    font-size: 20px;
   }
 
   .belief-footer {

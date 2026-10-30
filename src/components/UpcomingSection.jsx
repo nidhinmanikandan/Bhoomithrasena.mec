@@ -3,10 +3,7 @@ import "./FeatureSections.css";
 
 const HACKEARTH = {
   title: "HACKEARTH",
-  subtitle: "Code with nature in mind.",
-  date: "10—11 JANUARY 2026",
-  prize: "₹4,000",
-  status: "PAST EVENT",
+
   registrationUrl: "https://bit.ly/HackEarth",
 };
 
@@ -21,7 +18,7 @@ export default function UpcomingSection() {
         {/* Section label */}
         <div className="feature-eyebrow hackearth-eyebrow">
           <span>06</span>
-          <span>— WHAT'S NEXT?</span>
+          <span>— UPCOMING EVENT...</span>
         </div>
 
         {/* Main editorial heading */}
@@ -35,24 +32,21 @@ export default function UpcomingSection() {
             {HACKEARTH.title}
           </h2>
 
-          <p className="hackearth-subtitle">
-            {HACKEARTH.subtitle}
+          <p className="hackearth-sub-subtitle">
+            Code with nature in mind.
           </p>
         </div>
 
-        {/* Empty image area: insert an actual poster or photo later */}
-        <div
-          className="hackearth-visual"
-          aria-label="Reserved space for the HackEarth event visual"
-        >
-          <span className="visual-index">01 / EVENT VISUAL</span>
-          <span className="visual-placeholder-label">
-            IMAGE AREA
-          </span>
-          <span className="visual-caption">
-            CODE. BUILD. SUSTAIN.
-          </span>
+        
+
+        <div className="hackearth-visual">
+          <img
+            src="/computer-grass.jpg"
+            alt="A computer surrounded by grass and flowers"
+            loading="lazy"
+          />
         </div>
+        
 
         {/* Event information */}
         <div className="hackearth-copy">
@@ -68,36 +62,13 @@ export default function UpcomingSection() {
             bold problem-solving, and solutions that matter.
           </p>
 
-          <p className="feature-body">
-            Participants from other colleges are also encouraged.
-          </p>
-        </div>
-
-        {/* Details aligned to the grid */}
-        <div className="hackearth-meta">
-          <div className="event-meta-item">
-            <span className="event-meta-label">DATE</span>
-            <span className="event-meta-value">{HACKEARTH.date}</span>
-          </div>
-
-          <div className="event-meta-item">
-            <span className="event-meta-label">PRIZE POOL</span>
-            <span className="event-meta-value">{HACKEARTH.prize}</span>
-          </div>
-
-          <div className="event-meta-item">
-            <span className="event-meta-label">STATUS</span>
-            <span className="event-meta-value">{HACKEARTH.status}</span>
-          </div>
-
           <a
-            className="feature-link hackearth-link"
+            className="hackearth-register"
             href={HACKEARTH.registrationUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label="Open the original HackEarth event link"
           >
-            VIEW EVENT LINK <span aria-hidden="true">↗</span>
+            Register now <span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -106,6 +77,7 @@ export default function UpcomingSection() {
           <span>INNOVATION WITH PURPOSE</span>
           <span>ENVIRONMENT × TECHNOLOGY</span>
         </div>
+        
       </div>
     </section>
   );
