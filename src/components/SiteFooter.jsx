@@ -5,7 +5,7 @@ const CONTACT_URL = "";
 
 export default function SiteFooter() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="contact">
       <div className="feature-grid site-footer__grid">
         <p className="site-footer__eyebrow">BHOOMITHRASENA MEC</p>
 

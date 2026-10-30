@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import About from "./About";
 import GridOverlay from "./GridOverlay";
@@ -8,8 +8,13 @@ import EventsSection from "./EventsSection";
 import UpcomingSection from "./components/UpcomingSection";
 import BeliefSection from "./components/BeliefSection";
 import SiteFooter from "./components/SiteFooter";
+import NavigationMenu from "./components/NavigationMenu";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".hero-logo", {
@@ -41,7 +46,7 @@ export default function App() {
 
   return (
     <>
-      <main className="hero">
+      <main className="hero" id="home">
         <div className="scene">
           <video
             className="scene-video"
@@ -75,11 +80,25 @@ export default function App() {
         <a className="hero-logo" href="#" aria-label="Flower World home">
           bms.mec
         </a>
-        <button className="menu-button">Menu</button>
+        <button
+          ref={menuButtonRef}
+          className="menu-button"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="site-navigation"
+          onClick={() => setMenuOpen(true)}
+        >
+          Menu
+        </button>
         <span className="brand-mark" aria-hidden="true">
           ✳
         </span>
       </header>
+      <NavigationMenu
+        open={menuOpen}
+        onClose={closeMenu}
+        triggerRef={menuButtonRef}
+      />
       <div className="bottom-note">
         <span>01 / 03</span>
       </div>
