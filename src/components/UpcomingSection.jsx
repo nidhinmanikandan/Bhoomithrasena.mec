@@ -23,7 +23,7 @@ export default function UpcomingSection() {
 
         {/* Main editorial heading */}
         <div className="hackearth-heading">
-          <p className="feature-kicker">BHOOMITHRASENA MEC × IDEALab</p>
+          
 
           <h2
             className="hackearth-title initiative-title--tree"
@@ -31,6 +31,7 @@ export default function UpcomingSection() {
           >
             {HACKEARTH.title}
           </h2>
+          <p className="feature-kicker">BHOOMITHRASENA MEC × IDEALab</p>
 
         </div>
 

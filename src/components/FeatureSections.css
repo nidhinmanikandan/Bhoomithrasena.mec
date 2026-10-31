@@ -27,10 +27,11 @@
   gap: 12px;
   align-items: center;
   margin-bottom: clamp(36px, 6vw, 80px);
-  font-size: 24px;
+  font-size: 16px;
   line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #a8b58b;
 }
 
 .feature-eyebrow span:first-child {
@@ -52,6 +53,7 @@
 .feature-kicker {
   margin: 0 0 18px;
   opacity: 0.65;
+  margin-left: 8px;
 }
 
 .feature-body {
@@ -123,7 +125,7 @@
   font-size: clamp(4rem, 8vw, 12rem);
   line-height: 0.85;
   letter-spacing: -0.09em;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 .hackearth-visual {
