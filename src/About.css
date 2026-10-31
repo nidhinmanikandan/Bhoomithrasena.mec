@@ -130,7 +130,7 @@
   max-width: 28em;
   margin: 0;
   font-size: clamp(28px, 4vw, 64px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.035em;
   text-wrap: pretty;
