@@ -12,10 +12,42 @@ import NavigationMenu from "./components/NavigationMenu";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(
+    () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const loadingScreenRef = useRef(null);
+  const loadingProgressRef = useRef(null);
   const menuButtonRef = useRef(null);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useLayoutEffect(() => {
+    if (!isLoading) return;
+
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({ onComplete: () => setIsLoading(false) })
+        .to(loadingProgressRef.current, {
+          scaleX: 1,
+          duration: 0.9,
+          ease: "power2.inOut",
+        })
+        .to(
+          loadingScreenRef.current,
+          {
+            yPercent: -100,
+            duration: 0.5,
+            ease: "power3.inOut",
+          },
+          "+=0.1",
+        );
+    }, loadingScreenRef);
+
+    return () => ctx.revert();
+  }, [isLoading]);
+
+  useLayoutEffect(() => {
+    if (isLoading) return;
+
     const ctx = gsap.context(() => {
       gsap.from(".hero-logo", {
         y: -20,
@@ -42,10 +74,26 @@ export default function App() {
     }, document.body);
 
     return () => ctx.revert();
-  }, []);
+  }, [isLoading]);
 
   return (
     <>
+      {isLoading && (
+        <div
+          ref={loadingScreenRef}
+          className="loading-screen"
+          role="status"
+          aria-label="Loading Flower World"
+        >
+          <span className="loading-screen__brand">bms.mec</span>
+          <span className="loading-screen__track" aria-hidden="true">
+            <span
+              ref={loadingProgressRef}
+              className="loading-screen__progress"
+            />
+          </span>
+        </div>
+      )}
       <main className="hero" id="home">
         <div className="scene">
           <video
