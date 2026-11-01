@@ -25,7 +25,7 @@ export default function SiteFooter() {
           initiatives? Get in touch.
         </p>
 
-        <div className="site-footer__contact site-footer__socials">
+        {/* <div className="site-footer__contact site-footer__socials">
           <p className="site-footer__label">SOCIALS</p>
           <a
             className="site-footer__link"
@@ -47,7 +47,7 @@ export default function SiteFooter() {
           >
             Contact Us <span aria-hidden="true">↗</span>
           </a>
-        </div>
+        </div> */}
 
         <nav className="site-footer__navigation site-footer__explore" aria-label="Explore">
           <p className="site-footer__label">EXPLORE</p>
