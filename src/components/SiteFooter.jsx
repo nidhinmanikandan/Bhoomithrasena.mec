@@ -49,6 +49,45 @@ export default function SiteFooter() {
           </a>
         </div>
 
+        <nav className="site-footer__navigation site-footer__explore" aria-label="Explore">
+          <p className="site-footer__label">EXPLORE</p>
+          <a className="site-footer__nav-link" href="#about">
+            About us <span aria-hidden="true">↗</span>
+          </a>
+          <a className="site-footer__nav-link" href="#initiatives">
+            Initiatives <span aria-hidden="true">↗</span>
+          </a>
+          <a className="site-footer__nav-link" href="#more-events">
+            Events <span aria-hidden="true">↗</span>
+          </a>
+          <a className="site-footer__nav-link" href="#upcoming">
+            What’s next? <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
+
+        <nav className="site-footer__navigation site-footer__involved" aria-label="Get involved">
+          <p className="site-footer__label">GET INVOLVED</p>
+          <a
+            className="site-footer__nav-link"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Join the club <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="site-footer__nav-link"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram <span aria-hidden="true">↗</span>
+          </a>
+          <a className="site-footer__nav-link" href="#contact">
+            Contact us <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
+
         <div className="site-footer__wordmark" aria-label="Bhoomithrasena MEC">
           <p>bms.mec</p>
           
