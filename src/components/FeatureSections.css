@@ -270,7 +270,7 @@
   aspect-ratio: 2 / 1;
   min-width: 0;
   object-fit: contain;
-  transform: translateY(clamp(-150px, -12vw, -72px));
+  transform: translateY(clamp(-400px, -12vw, -280px));
 }
 
 .belief-copy {
@@ -278,7 +278,7 @@
   grid-row: 4;
   align-self: center;
   min-width: 0;
-  transform: translateY(clamp(24px, 4vw, 56px));
+  transform: translateY(clamp(-300px, 4vw, -150px));
 }
 
 .belief-intro {
