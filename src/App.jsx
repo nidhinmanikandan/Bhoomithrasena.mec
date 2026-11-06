@@ -138,9 +138,12 @@ export default function App() {
         >
           Menu
         </button>
-        <span className="brand-mark" aria-hidden="true">
-          ✳
-        </span>
+        <img
+          className="brand-mark"
+          src="/images/logo/logo.png"
+          alt=""
+          aria-hidden="true"
+        />
       </header>
       <NavigationMenu
         open={menuOpen}

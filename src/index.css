@@ -150,7 +150,10 @@ a:focus-visible {
 }
 
 .brand-mark {
-  font-size: 34px;
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .hero-content {
@@ -244,7 +247,8 @@ a:focus-visible {
   }
 
   .brand-mark {
-    font-size: 28px;
+    width: 28px;
+    height: 28px;
   }
 
   .hero-content {
