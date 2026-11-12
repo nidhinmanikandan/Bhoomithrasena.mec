@@ -88,11 +88,12 @@ a:focus-visible {
 
 .scene-video {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
   object-fit: cover;
   filter: contrast(1.15) brightness(0.82);
+  will-change: transform;
 }
 
 .scene canvas {

@@ -18,7 +18,51 @@ export default function App() {
   const loadingScreenRef = useRef(null);
   const loadingProgressRef = useRef(null);
   const menuButtonRef = useRef(null);
+  const sceneVideoRef = useRef(null);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  useLayoutEffect(() => {
+    const video = sceneVideoRef.current;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    const xTo = gsap.quickTo(video, "x", {
+      duration: 1.2,
+      ease: "power3.out",
+    });
+    const yTo = gsap.quickTo(video, "y", {
+      duration: 1.2,
+      ease: "power3.out",
+    });
+    const release = () => {
+      xTo(0);
+      yTo(0);
+    };
+    const moveWithPointer = (event) => {
+      if (reducedMotion.matches) return;
+
+      const normalizedX = (event.clientX / window.innerWidth - 0.5) * 2;
+      const normalizedY = (event.clientY / window.innerHeight - 0.5) * 2;
+      xTo(normalizedX * 40);
+      yTo(normalizedY * 40);
+    };
+    const handleMotionPreferenceChange = (event) => {
+      if (event.matches) release();
+    };
+
+    window.addEventListener("pointermove", moveWithPointer);
+    document.addEventListener("pointerleave", release);
+    window.addEventListener("blur", release);
+    reducedMotion.addEventListener("change", handleMotionPreferenceChange);
+
+    return () => {
+      window.removeEventListener("pointermove", moveWithPointer);
+      document.removeEventListener("pointerleave", release);
+      window.removeEventListener("blur", release);
+      reducedMotion.removeEventListener("change", handleMotionPreferenceChange);
+      gsap.killTweensOf(video);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     if (!isLoading) return;
@@ -97,6 +141,7 @@ export default function App() {
       <main className="hero" id="home">
         <div className="scene">
           <video
+            ref={sceneVideoRef}
             className="scene-video"
             autoPlay
             loop
