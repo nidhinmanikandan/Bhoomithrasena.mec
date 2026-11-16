@@ -9,38 +9,51 @@ export default function BeliefSection() {
   const titleRef = useRef(null);
 
   useLayoutEffect(() => {
-    const title = titleRef.current;
-    if (!title) return;
+  const title = titleRef.current;
+  if (!title) return;
 
-    const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const lines = gsap.utils.toArray(".belief-title > span", title);
+  const mm = gsap.matchMedia();
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: title,
-          start: "top 85%",
-          end: "bottom 35%",
-          scrub: 0.8,
-          invalidateOnRefresh: true,
-        },
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
+    const lines = gsap.utils.toArray(".belief-title > span", title);
+
+    // ---- tuning ----
+    const SIDE = -1;     // -1 = enter from the LEFT, 1 = enter from the RIGHT
+    const SPREAD = 0.5;  // max horizontal distance (x viewport width)
+    const CURVE = 1.9;   // higher = sharper bend near the bottom
+    const SETTLE = 0.4;  // line is fully in place when its center reaches 40% from the top
+
+    // smoothing (replaces scrub: 0.8)
+    const setX = lines.map((l) => gsap.quickTo(l, "x", { duration: 0.6, ease: "power3.out" }));
+
+    const update = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      lines.forEach((line, i) => {
+        const r = line.getBoundingClientRect(); // x transform doesn't change top, so no feedback loop
+        const center = r.top + r.height / 2;
+        // n: 1 when the line is at the bottom of the screen, 0 once it reaches SETTLE
+        const n = gsap.utils.clamp(0, 1, (center - vh * SETTLE) / (vh * (1 - SETTLE)));
+        setX[i](SIDE * vw * SPREAD * Math.pow(n, CURVE));
       });
+    };
 
-      lines.forEach((line, index) => {
-        const progress = index / Math.max(lines.length - 1, 1);
-        const duration = gsap.utils.interpolate(1, 0.25, progress);
-
-        timeline.fromTo(
-          line,
-          { x: () => -window.innerWidth * 0.5 },
-          { x: 0, duration, ease: "none" },
-          1 - duration
-        );
-      });
+    ScrollTrigger.create({
+      trigger: title,
+      start: "top bottom",
+      end: "bottom top",
+      onUpdate: update,
+      onRefresh: update,
     });
 
-    return () => mm.revert();
-  }, []);
+    update();
+
+    return () => gsap.set(lines, { clearProps: "x" });
+  });
+
+  return () => mm.revert();
+}, []);
 
   return (
     <section
