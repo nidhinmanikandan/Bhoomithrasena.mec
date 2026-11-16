@@ -38,6 +38,8 @@
   opacity: 0.55;
 }
 
+
+
 .feature-kicker,
 .visual-index,
 .visual-caption,
@@ -53,7 +55,6 @@
 .feature-kicker {
   margin: 0 0 18px;
   opacity: 0.65;
-  margin-left: 8px;
 }
 
 .feature-body {
@@ -124,10 +125,11 @@
 
 .hackearth-title.initiative-title--tree {
   width: 100%;
-  font-size: 20cqi;
+  font-size: 21cqi;
   line-height: 0.85;
   letter-spacing: -0.09em;
   margin-bottom: 8px;
+  text-indent: -1.3cqi;
   white-space: nowrap;
 }
 
@@ -291,6 +293,7 @@
 .belief-closing {
   margin: clamp(32px, 5vw, 60px) 0 0;
 }
+
 
 
 .hackearth-copy .feature-body,
