@@ -123,7 +123,7 @@
 
 .hackearth-title.initiative-title--tree {
   width: 100%;
-  font-size: clamp(3rem, 15vw, 18rem);
+  font-size: clamp(3rem, 19vw, 22rem);
   line-height: 0.85;
   letter-spacing: -0.09em;
   margin-bottom: 8px;
@@ -364,7 +364,7 @@
 
   .hackearth-title,
   .hackearth-title.initiative-title--tree {
-    font-size: clamp(3rem, 15vw, 8rem);
+    font-size: clamp(3rem, 17vw, 8rem);
     line-height: 0.85;
     letter-spacing: -0.07em;
   }
