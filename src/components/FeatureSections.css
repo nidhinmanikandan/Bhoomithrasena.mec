@@ -245,7 +245,7 @@
   grid-column: 1 / 9;
   grid-row: 4;
   min-width: 0;
-  margin-top: clamp(230px, 40vh, 440px);
+  margin-top: clamp(220px, 38vh, 420px);
 }
 
 .belief-sticky-stage {
