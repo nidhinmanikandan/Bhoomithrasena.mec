@@ -100,7 +100,7 @@
 }
 
 .hackearth-heading {
-  grid-column: 1 / 9;
+  grid-column: 1 / -1;
   grid-row: 2;
   min-width: 0;
   align-self: start;
@@ -122,7 +122,8 @@
 */
 
 .hackearth-title.initiative-title--tree {
-  font-size: clamp(4rem, 8vw, 12rem);
+  width: 100%;
+  font-size: clamp(3rem, 15vw, 18rem);
   line-height: 0.85;
   letter-spacing: -0.09em;
   margin-bottom: 8px;
@@ -331,7 +332,7 @@
   }
 
   .hackearth-heading {
-    grid-column: 1 / 9;
+    grid-column: 1 / -1;
   }
 
   .hackearth-copy {
@@ -363,7 +364,7 @@
 
   .hackearth-title,
   .hackearth-title.initiative-title--tree {
-    font-size: 8vw;
+    font-size: clamp(3rem, 15vw, 8rem);
     line-height: 0.85;
     letter-spacing: -0.07em;
   }
