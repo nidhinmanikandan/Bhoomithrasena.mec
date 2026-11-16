@@ -1,7 +1,47 @@
-import React from "react";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./FeatureSections.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function BeliefSection() {
+  const titleRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const title = titleRef.current;
+    if (!title) return;
+
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const lines = gsap.utils.toArray(".belief-title > span", title);
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: title,
+          start: "top 85%",
+          end: "bottom 35%",
+          scrub: 0.8,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      lines.forEach((line, index) => {
+        const progress = index / Math.max(lines.length - 1, 1);
+        const duration = gsap.utils.interpolate(1, 0.25, progress);
+
+        timeline.fromTo(
+          line,
+          { x: () => -window.innerWidth * 0.5 },
+          { x: 0, duration, ease: "none" },
+          1 - duration
+        );
+      });
+    });
+
+    return () => mm.revert();
+  }, []);
+
   return (
     <section
       className="feature-section belief-section"
@@ -51,9 +91,11 @@ export default function BeliefSection() {
 
         {/* Main headline */}
         <div className="belief-heading">
-          <h2 className="belief-title" id="belief-title">
-            <span>A BETTER PLANET</span>
-            <span className="begins001">BEGINS <span>WITH US.</span></span>
+          <h2 className="belief-title" id="belief-title" ref={titleRef}>
+            <span>A BETTER</span>
+            <span>PLANET</span>
+            <span className="begins001">BEGINS</span>
+            <span className="begins001">WITH US.</span>
           </h2>
         </div>
 
