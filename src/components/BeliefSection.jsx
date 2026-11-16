@@ -15,17 +15,18 @@ export default function BeliefSection() {
           <span>— BELIEF</span>
         </div>
 
-        <img
-          className="belief-visual"
-          src="/running-grass.png"
-          alt="A figure made of grass and flowers"
-          loading="lazy"
-        />
+        <div className="belief-sticky-stage">
+          <img
+            className="belief-visual"
+            src="/running-grass.png"
+            alt="A figure made of grass and flowers"
+            loading="lazy"
+          />
 
-        {/* Sticky belief label and teaser */}
-        <div className="belief-sticky-texts">
-          <p className="belief-label">Our Belief</p>
-          <p className="belief-why">WHY</p>
+          <div className="belief-sticky-texts">
+            <p className="belief-label">Our Belief</p>
+            <p className="belief-why">WHY</p>
+          </div>
         </div>
 
         {/* Supporting copy */}
