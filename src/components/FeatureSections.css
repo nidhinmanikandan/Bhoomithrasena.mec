@@ -320,10 +320,10 @@
 
 .belief-copy {
   grid-column: 1 / 5;
-  grid-row: 3;
+  grid-row: 5;
   align-self: start;
   min-width: 0;
-  margin-top: clamp(24px, 4vw, 48px);
+  margin-top: clamp(24px, 3vw, 40px);
   margin-bottom: clamp(48px, 8vw, 64px);
 }
 
@@ -414,7 +414,11 @@
 
   .belief-copy {
     grid-column: 1 / -1;
-    grid-row: 4;
+    grid-row: 6;
+  }
+
+  .belief-footer {
+    grid-row: 7;
   }
 
 }
@@ -510,14 +514,14 @@
 
   .belief-copy {
     grid-column: 1 / 5;
-    grid-row: 4;
+    grid-row: 6;
     margin-top: 36px;
     transform: none;
   }
 
   .belief-footer {
     grid-column: 1 / 5;
-    grid-row: 6;
+    grid-row: 7;
     flex-direction: column;
     margin-top: 44px;
   }

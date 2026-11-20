@@ -82,6 +82,16 @@ export default function BeliefSection() {
           </div>
         </div>
 
+        {/* Main headline */}
+        <div className="belief-heading">
+          <h2 className="belief-title" id="belief-title" ref={titleRef}>
+            <span>A BETTER</span>
+            <span>PLANET</span>
+            <span className="begins001">BEGINS</span>
+            <span className="begins001">WITH US.</span>
+          </h2>
+        </div>
+
         {/* Supporting copy */}
         <div className="belief-copy">
           <p className="belief-intro">
@@ -100,16 +110,6 @@ export default function BeliefSection() {
             A greener future isn't built by one person doing everything.
             It's built by all of us doing something.
           </p>
-        </div>
-
-        {/* Main headline */}
-        <div className="belief-heading">
-          <h2 className="belief-title" id="belief-title" ref={titleRef}>
-            <span>A BETTER</span>
-            <span>PLANET</span>
-            <span className="begins001">BEGINS</span>
-            <span className="begins001">WITH US.</span>
-          </h2>
         </div>
 
         {/* Closing line */}
